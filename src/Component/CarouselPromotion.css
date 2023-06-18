@@ -1,0 +1,17 @@
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .centered-image {
+    display: block;
+    margin: 0 auto;
+    height: 500px;
+  }
+
+  .controls-left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
