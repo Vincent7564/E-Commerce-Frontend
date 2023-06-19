@@ -6,10 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import CarouselPromotion from './Component/CarouselPromotion'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Navbar from './Component/Navbar';
+<link href="/dist/output.css" rel="stylesheet"></link>
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Navbar />
     <CarouselPromotion />
   </React.StrictMode>
 );
