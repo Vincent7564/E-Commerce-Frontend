@@ -1,6 +1,6 @@
-import { useState, useRef, Fragment } from "react";
+import { useRef, Fragment } from "react";
 import Slider from "react-slick";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import "../Image/Test.jpg";
 import "../Component/CarouselPromotion.css";
 import "slick-carousel/slick/slick.css";
@@ -58,8 +58,8 @@ export default function Carousel() {
             alignItems: "center",
           }}
         >
-          {" "}
-          {dots}{" "}
+
+          {dots}
         </ul>
       </div>
     ),
@@ -67,7 +67,7 @@ export default function Carousel() {
 
   return (
     <Fragment>
-      <div className="carousel-container">
+      <div className="">
         <Slider ref={sliderRef} {...sliderSettings}>
           {carouselvalue.map((carousel, index) => (
             <div key={index} className="image-container">
@@ -79,10 +79,10 @@ export default function Carousel() {
         </Slider>
         <div className="controls">
           <button className="button-left" onClick={handlePrevious}>
-            <FaChevronLeft width={"100px"} height={"100px"} />
+            <AiOutlineLeft size={"2em"}/>
           </button>
           <button className="button-right" onClick={handleNext}>
-            <FaChevronRight width={"100px"} height={"100px"} />
+            <AiOutlineRight size={"2em"} />
           </button>
         </div>
       </div>

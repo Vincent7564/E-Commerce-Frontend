@@ -1,7 +1,7 @@
 const Navbar = () => {
   return (
     <div>
-      <div className="flex flex-wrap place-items-center h-screen">
+      <div className="flex flex-wrap pb-10">
         <section className="relative mx-auto">
           {/* <!-- navbar --> */}
           <nav className="flex justify-between bg-gray-900 text-white w-screen">
@@ -12,7 +12,7 @@ const Navbar = () => {
               </a>
               {/* <!-- Nav Links --> */}
               <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-                <li>
+                {/* <li>
                   <a className="hover:text-gray-200" href="#">
                     Home
                   </a>
@@ -31,7 +31,11 @@ const Navbar = () => {
                   <a className="hover:text-gray-200" href="#">
                     Contact Us
                   </a>
+                </li> */}
+                <li>
+                    <input type="text" name="" id="" />
                 </li>
+                
               </ul>
               {/* <!-- Header Icons --> */}
               <div className="hidden xl:flex items-center space-x-5 items-center">

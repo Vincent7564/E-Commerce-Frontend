@@ -1,22 +1,23 @@
 .carousel-container {
     position: relative;
+    background-color: red;
   }
   
   .controls {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 20 20px;
+
   }
   
   .controls button {
     background: transparent;
     border: none;
     cursor: pointer;
+    background-color: aqua;
   }
   
   .controls button:focus {
@@ -25,20 +26,12 @@
   
   .button-left {
     order: 1;
-    width: 100px;
-    height: 100px;
+    background-color: aqua;
   }
   
   .button-right {
     order: 3;
-    width: 100px;
-    height: 100px;
-    padding-right: 30px;
-  }
-  
-  .centered-image {
-    display: block;
-    margin: 0 auto;
+    background-color: aqua;
   }
 
   .image-container {
