@@ -33,6 +33,11 @@ const Home = () => {
                     <ProductCard />
                 </div>
             </div>
+
+            
+
+
+            {/* paging */}
       </div>
     );
   };
