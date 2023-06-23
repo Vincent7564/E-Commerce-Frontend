@@ -1,4 +1,4 @@
-import { useRef, Fragment } from "react";
+import { useState,useRef, Fragment } from "react";
 import Slider from "react-slick";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import "../Image/Test.jpg";
@@ -48,17 +48,17 @@ export default function Carousel() {
     slidesToScroll: 1,
     autoplaySpeed: 5000,
     autoplay: true,
+    centermode: true,
+    arrows:false,
     appendDots: (dots) => (
       <div style={{ paddingTop: "100px", alignItems: "center" }}>
         <ul
           style={{
-            margin: "0px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
           }}
-        >
-
+        className="carousel-dots">
           {dots}
         </ul>
       </div>
@@ -67,7 +67,7 @@ export default function Carousel() {
 
   return (
     <Fragment>
-      <div className="">
+      <div className="carousel-container carousel-slider">
         <Slider ref={sliderRef} {...sliderSettings}>
           {carouselvalue.map((carousel, index) => (
             <div key={index} className="image-container">

@@ -1,6 +1,6 @@
 .carousel-container {
     position: relative;
-    background-color: red;
+    width: 100%;
   }
   
   .controls {
@@ -17,7 +17,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    background-color: aqua;
+
   }
   
   .controls button:focus {
@@ -26,22 +26,51 @@
   
   .button-left {
     order: 1;
-    background-color: aqua;
   }
   
   .button-right {
     order: 3;
-    background-color: aqua;
   }
 
   .image-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
   }
 
   .centered-image {
     display: block;
     margin: 0 auto;
     height: 500px;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel-dots li {
+    margin: 0 5px;
+  }
+  
+  .carousel-dots button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: aqua;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .carousel-dots .slick-active button {
+    background-color: red;
   }
