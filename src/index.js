@@ -17,18 +17,14 @@ import CarouselPromotion from './Component/CarouselPromotion'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <Navbar />
-    
-    <Register />
-    <RouteList />
+    <Navbar />
     <div className='my-5 mx-44 '>
-      
+      <RouteList />
     </div>
     <div className='pt-20' >
-    <Home />
-    <Footer />
-    </div> */}
-    <CarouselPromotion />
+      <Footer />
+    </div>
+    
   </React.StrictMode>
 );
 

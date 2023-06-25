@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { useFormik, Field } from "formik";
 import * as yup from "yup";
+import axios from 'axios';
 
 const Register = () => {
   const FormSchema = yup.object().shape({
@@ -34,6 +35,18 @@ const Register = () => {
     },
     validationSchema: FormSchema,
     validateOnChange: true,
+    onSubmit:async (values, { setSubmitting }) => {
+      try {
+        console.log('Form values:', values);
+        const response = await axios.post('/register', values);
+        console.log("Values:")
+        console.log("Values is:"+ response.data);
+      } catch (error) {
+        console.error('Error: ', error);
+      } finally {
+        setSubmitting(false);
+      }
+    },
   });
 
   return (
@@ -145,6 +158,7 @@ const Register = () => {
                 className=" p-3 bg-red-600"
                 type="submit"
                 onChange={formik.handleChange}
+                onSubmit={formik.handleSubmit}
               >
                 Submit
               </button>

@@ -13,6 +13,7 @@ const Navbar = () => {
               <ul className="hidden md:flex  mx-auto font-semibold font-heading ">
                 <input type="text" className=" w-[35rem] h-[2rem] text-black" placeholder="Apa Yang Sedang Kamu Cari?" />
                 &nbsp;&nbsp;<button className=" bg-white text-black w-[5rem]">Cari!</button>
+                &nbsp;&nbsp;<button className=" bg-white text-black w-[5rem]"><a href="/register">Daftar</a></button>
               </ul>
               {/* <!-- Header Icons --> */}
               <div className="hidden xl:flex items-center space-x-5 items-center">
@@ -92,7 +93,6 @@ const Navbar = () => {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
               </span>
             </a>
-            
             <a className="navbar-burger self-center mr-12 xl:hidden" href="#">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
