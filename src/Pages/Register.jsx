@@ -2,6 +2,8 @@ import { Fragment } from "react";
 import { useFormik, Field } from "formik";
 import * as yup from "yup";
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   const FormSchema = yup.object().shape({
@@ -40,9 +42,17 @@ const Register = () => {
         console.log('Form values:', values);
         const response = await axios.post('/register', values);
         console.log("Values:")
-        console.log("Values is:"+ response.data);
+        console.log("Values is:"+ response.status);
+        if(response.status === 200){
+          toast.success('Registration Success!!!',{
+            position: toast.POSITION.TOP_CENTER
+          })
+        }
       } catch (error) {
         console.error('Error: ', error);
+        toast.success('Registration Error :(, Please Check and Try Again',{
+          position: toast.POSITION.TOP_CENTER
+        })
       } finally {
         setSubmitting(false);
       }
@@ -51,6 +61,7 @@ const Register = () => {
 
   return (
     <>
+      <ToastContainer />
       <div className=" flex justify-center">
         <img className=" w-60 h-50" src={require("../Image/logo.png")} alt="" />
       </div>
