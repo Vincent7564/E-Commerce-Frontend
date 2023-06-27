@@ -14,6 +14,7 @@ const Navbar = () => {
                 <input type="text" className=" w-[35rem] h-[2rem] text-black" placeholder="Apa Yang Sedang Kamu Cari?" />
                 &nbsp;&nbsp;<button className=" bg-white text-black w-[5rem]">Cari!</button>
                 &nbsp;&nbsp;<button className=" bg-white text-black w-[5rem]"><a href="/register">Daftar</a></button>
+                &nbsp;&nbsp;<button className=" bg-slate-800 text-white w-[5rem]"><a href="/add-product">Add Product</a></button>
               </ul>
               {/* <!-- Header Icons --> */}
               <div className="hidden xl:flex items-center space-x-5 items-center">
