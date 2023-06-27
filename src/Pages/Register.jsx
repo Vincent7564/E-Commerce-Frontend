@@ -9,6 +9,7 @@ const Register = () => {
   const FormSchema = yup.object().shape({
     Password: yup
       .string()
+      .required("Password Must Be Filled")
       .min(8, "Password must be 8 characters long")
       .matches(/[0-9]/, "Password requires a number")
       .matches(/[a-z]/, "Password requires a lowercase letter")
@@ -16,12 +17,21 @@ const Register = () => {
       .matches(/[^\w]/, "Password requires a symbol"),
     cpassword: yup
       .string()
+      .required("Confirm Password Must Be Filled")
       .oneOf([yup.ref("Password"), null], 'Must match "Password" field value'),
+    Username: yup
+      .string()
+      .required("Username Must Be Filled"),
+    FirstName: yup
+      .string()
+      .required("First Name Must Be Filled"),
     Email : yup
       .string()
+      .required("Email Must Be Filled")
       .matches(/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,"Please Enter The Correct Email!"),
     Phone : yup
       .string()
+      .required("Phone Number Must Be Filled")
       .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,"Please Enter A Valid Phone Number!")
   });
 
@@ -73,7 +83,7 @@ const Register = () => {
         </div>
         <div className=" bg-cyan-300 pl-5 w-[25%] m-auto ">
           <div class="grid grid-cols-2 gap-2 h-[50%] pt-4 m-auto font-sans">
-            <div class="col-span-2">Username</div>
+            <div class="col-span-2">Username <span className=" text-red-600">*</span></div>
             <div class="col-span-2">
               <input
                 type="text"
@@ -84,8 +94,8 @@ const Register = () => {
                 value={formik.values.Username}
               />
             </div>
-            <div class=" col-span-1 ">First Name</div>
-            <div class=" col-span-1">Last Name</div>
+            <div class=" col-span-1 ">First Name <span className=" text-red-600">*</span></div>
+            <div class=" col-span-1">Last Name <span className=" text-red-600">*</span></div>
             <div class="col-span-1">
               <input
                 type="text"
@@ -106,7 +116,7 @@ const Register = () => {
                 value={formik.values.LastName}
               />
             </div>
-            <div class="col-span-2">Email</div>
+            <div class="col-span-2">Email <span className=" text-red-600">*</span></div>
             <div class="col-span-2">
               <input
                 type="text"
@@ -118,8 +128,8 @@ const Register = () => {
               />
             </div>
             {formik.errors.Email && <div className="col-span-2 text-red-600">*{formik.errors.Email}</div>}
-            <div class=" col-span-1">Password</div>
-            <div class=" col-span-1">Confirm Password</div>
+            <div class=" col-span-1">Password <span className=" text-red-600">*</span></div>
+            <div class=" col-span-1">Confirm Password <span className=" text-red-600">*</span></div>
             <div class="col-span-1">
               <input
                 type="password"
@@ -140,7 +150,7 @@ const Register = () => {
             </div>
             {formik.errors.Password && <div className="col-span-2 text-red-600">*{formik.errors.Password}</div>}
             {formik.errors.cpassword && <div className="col-span-2 text-red-600">*{formik.errors.cpassword}</div>}
-            <div class="col-span-2">Address</div>
+            <div class="col-span-2">Address <span className=" text-red-600">*</span></div>
             <div className="col-span-2">
               <textarea
                 name="Address"
@@ -152,7 +162,7 @@ const Register = () => {
                 value={formik.values.Address}
               ></textarea>
             </div>
-            <div class="col-span-2">Phone</div>
+            <div class="col-span-2">Phone <span className=" text-red-600">*</span></div>
             <div class="col-span-2">
               <input
                 type="text"

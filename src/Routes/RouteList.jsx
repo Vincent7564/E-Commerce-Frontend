@@ -3,6 +3,7 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import AddProduct from "../Pages//Admin/AddProduct";
+import PageError from "../Pages/PageError";
 
 const RouteList = () => {
   return (
@@ -12,6 +13,7 @@ const RouteList = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/add-product" element={<AddProduct />} />
+        <Route path="*" element={<PageError />} />
       </Routes>
     </BrowserRouter>
   );
