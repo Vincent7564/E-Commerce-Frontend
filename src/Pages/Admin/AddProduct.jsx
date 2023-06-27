@@ -44,7 +44,7 @@ const AddProduct = () => {
         }
       } catch (error) {
         console.error('Error: ', error);
-        toast.success('Unable to add product, Please Check and Try Again',{
+        toast.error('Unable to add product, Please Check and Try Again',{
           position: toast.POSITION.TOP_CENTER
         })
       } finally {

@@ -1,9 +1,26 @@
 import CarouselPromotion from '../Component/CarouselPromotion'
 import ProductCard from '../Component/ProductCard'
 import CarouselProduct from '../Component/CarouselProduct';
+import axios from 'axios';
+import React,{ useEffect, useState } from 'react';
 
 const Home = () => {
-
+    const [productCardData, setProductCardData] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            console.log("Testing useEffect")
+            const response = await axios.get('/api/product-card-data');
+            console.log(response.data);
+            console.log(response.status);
+            setProductCardData(response.data);
+          } catch (error) {
+            console.error(error);
+          }
+        };
+        fetchData();
+      }, []);
+      
     return (
         <div className="">
             <CarouselPromotion />
@@ -16,21 +33,13 @@ const Home = () => {
 
             <h1 className='text-2xl font-medium my-4 mt-[3rem]'><b>Discover Products</b></h1>
             <div>
-                <div class="grid grid-cols-4 gap-2">
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
+                <div className="grid grid-cols-4 gap-2">
+                    {productCardData.map((data)=>(
+                        <ProductCard productName = {data.productName}
+                        price = {data.price}
+                        image = {data.productImage}
+                        />
+                    ))}
                 </div>
             </div>
       </div>

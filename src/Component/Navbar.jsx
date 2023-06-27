@@ -6,7 +6,7 @@ const Navbar = () => {
           {/* <!-- navbar --> */}
           <nav className="flex justify-between bg-gray-900 text-white w-screen">
             <div className="px-5 xl:px-12 py-6 flex w-full items-center">
-              <a className="text-3xl font-bold font-heading" href="#">
+              <a className="text-3xl font-bold font-heading" href="/">
                 <img src={require('../Image/logo.png')} className='h-10 w-20' alt="" />
               </a>
               {/* <!-- Nav Links --> */}
