@@ -1,7 +1,8 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import ProductCardDisc from '../Component/ProductCardDisc'
-
+import { useEffect,useState } from 'react';
+import axios from 'axios';
 
 const responsive = {
     superLargeDesktop: {
@@ -24,18 +25,31 @@ const responsive = {
   };
 
 const CarouselProduct = () => {
-
+  const [productCardDataDisc, setProductCardDataDisc] = useState([]);
+  useEffect(() => {
+      const fetchData = async () => {
+        try {
+          console.log("Testing useEffect")
+          const response = await axios.get('/api/product-card-data-disc');
+          console.log(response.data);
+          console.log(response.status);
+          setProductCardDataDisc(response.data);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      fetchData();
+    }, []);
+    
     return (
         
         <Carousel responsive={responsive}>
-            <ProductCardDisc />
-            <ProductCardDisc />
-            <ProductCardDisc />
-            <ProductCardDisc />
-            <ProductCardDisc />
-            <ProductCardDisc />
-            <ProductCardDisc />
-            <ProductCardDisc />
+            {productCardDataDisc.map((data)=>(
+              <ProductCardDisc productName = {data.productName}
+              price = {data.price}
+              image = {data.productImage}
+              disc = {10}/>
+            ))}
         </Carousel>
 
         
