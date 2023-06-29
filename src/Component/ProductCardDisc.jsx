@@ -10,9 +10,9 @@ const ProductCardDisc = (props) => {
     return formatter.format(price);
   };
   return (
-    <div class="border-2 border-slate-300 rounded-xl p-2 m-0">
-      <div class="max-w-sm rounded overflow-hidden">
-        <img class="w-full" src={props.image} alt="Product" />
+    <div class="max-w-sm border-2 border-slate-300 rounded-xl m-0">
+      <div class="rounded overflow-hidden">
+        <img class="object-cover w-[24rem] h-[300px]" src={props.image} alt="Product" />
         <div class="px-6 py-4">
           <div class="font-bold text-xl mb-2">
             <span>{props.productName}{props.disc !== 0 && (
