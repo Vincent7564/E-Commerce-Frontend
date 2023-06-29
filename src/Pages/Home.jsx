@@ -6,25 +6,25 @@ import React,{ useEffect, useState } from 'react';
 
 const Home = () => {
     const [productCardData, setProductCardData] = useState([]);
+    
     useEffect(() => {
         const fetchData = async () => {
           try {
             console.log("Testing useEffect")
-            const response = await axios.get('/api/product-card-data');
-            console.log(response.data);
-            console.log(response.status);
-            setProductCardData(response.data);
+            const responseProductCard = await axios.get('/api/product-card-data');
+            console.log(responseProductCard.data);
+            console.log(responseProductCard.status);
+            setProductCardData(responseProductCard.data);
           } catch (error) {
             console.error(error);
           }
         };
         fetchData();
       }, []);
-      
+
     return (
         <div className="">
-            <CarouselPromotion />
-
+              <CarouselPromotion />
             <h1 className='text-2xl font-medium my-4 mt-[5rem]'><b>Promotions</b></h1>
             
             <div class="border-2 border-slate-300 rounded-xl p-5">

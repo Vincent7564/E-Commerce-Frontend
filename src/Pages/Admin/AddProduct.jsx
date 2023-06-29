@@ -21,7 +21,8 @@ const AddProduct = () => {
       Price: "",
       Description: "",
       Qty: "",
-      ProductImage: ""
+      ProductImage: "",
+      Discount :"",
     },
     validationSchema: FormSchema,
     validateOnChange: true,
@@ -117,7 +118,17 @@ const AddProduct = () => {
               />
             </div>
             {formik.errors.Qty && <div className="col-span-2 text-red-600">*{formik.errors.Qty}</div>}
-            
+            <div class="col-span-2">Discount</div>
+            <div class="col-span-2">
+              <input
+                type="text"
+                className="w-[95%] h-8"
+                name="Discount"
+                id="Discount"
+                onChange={formik.handleChange}
+                value={formik.values.Discount}
+              />
+            </div>
             <div class="col-span-2">Image</div>
             <div class="col-span-2">
               <input
