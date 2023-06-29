@@ -38,6 +38,7 @@ const Home = () => {
                         <ProductCard productName = {data.productName}
                         price = {data.price}
                         image = {data.productImage}
+                        id = {data._id}
                         />
                     ))}
                 </div>

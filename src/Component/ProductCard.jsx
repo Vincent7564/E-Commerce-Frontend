@@ -1,4 +1,5 @@
 import testImg from "../Image/Test.jpg";
+import { NavLink } from "react-router-dom";
 
 const ProductCard = (props) => {
     const formattedPrice = props.price ? parseFloat(props.price.toString()) : '';
@@ -12,7 +13,7 @@ const ProductCard = (props) => {
       };
 
     return (
-        <div class="border-2 border-slate-300 rounded-xl p-2 m-0">
+        <NavLink to={"/product-detail/" + props.id} class="border-2 border-slate-300 rounded-xl p-2 m-0">
             <div class="max-w-sm rounded overflow-hidden">
                 <img class="w-full" src={props.image} alt="Product" />
                 <div class="px-6 py-4">
@@ -22,8 +23,7 @@ const ProductCard = (props) => {
                     </p>
                 </div>
             </div>
-        </div>
-        
+        </NavLink>
     );
   };
   

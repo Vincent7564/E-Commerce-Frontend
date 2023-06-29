@@ -22,11 +22,12 @@ const responsive = {
     }
   };
 
-const CarouselProductDetail = () => {
+const CarouselProductDetail = (props) => {
 
     return (
         
         <Carousel responsive={responsive}>
+            <img class="w-[500px] h-[500px] m-auto" src={props.productImage} alt="Product" />
             <img class="w-[500px] h-[500px] m-auto" src={testImg} alt="Product" />
             <img class="w-[500px] h-[500px] m-auto" src={testImg} alt="Product" />
             <img class="w-[500px] h-[500px] m-auto" src={testImg} alt="Product" />
