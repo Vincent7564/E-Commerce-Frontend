@@ -86,7 +86,7 @@ export default function Carousel() {
         <Slider ref={sliderRef} {...sliderSettings}>
           {carouselData.map((carousel, index) => (
             <div key={index} className="image-container">
-              <a href={carousel.link}>
+              <a href={carousel.hyperlink}>
                 <img className="centered-image" src={carousel.image} alt="" />
               </a>
             </div>

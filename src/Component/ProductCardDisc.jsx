@@ -15,13 +15,13 @@ const ProductCardDisc = (props) => {
         <img class="object-cover w-[24rem] h-[300px]" src={props.image} alt="Product" />
         <div class="px-6 py-4">
           <div class="font-bold text-xl mb-2">
-            <span>{props.productName}{props.disc !== 0 && (
+            <span>{props.productName}{props.disc > 0 ? (
               <div className=" font-bold bg-red-500 text-red-300 text-right">{props.disc}% OFF!</div>
-            )}</span>
+            ):(<div className=" font-bold bg-red-500 text-red-300 text-right">0% OFF!</div>)}</span>
           </div>
           <p class="text-red-500 text-base">
-            {props.disc !== 0 &&
-              formatPrice(formattedPrice - (formattedPrice * props.disc) / 100)}
+            {props.disc > 0 ?
+              formatPrice(formattedPrice - (formattedPrice * props.disc) / 100):formatPrice(formattedPrice)}
           </p>
           <p class="text-gray-700 text-base">
             <strike>{formatPrice(formattedPrice)}</strike>
