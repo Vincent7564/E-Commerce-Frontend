@@ -18,13 +18,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Navbar />
-    <div className='my-5 mx-44 '>
+    <div className='my-5 mx-44 overflow-hidden'>
       <RouteList />
     </div>
-    <div className='pt-20' >
+    <div className='mt-[5rem] overflow-hidden'>
       <Footer />
     </div>
-    
   </React.StrictMode>
 );
 
