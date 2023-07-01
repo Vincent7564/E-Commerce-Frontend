@@ -1,5 +1,3 @@
-import testImg from "../Image/Test.jpg";
-
 const CardWithRating = (props) => {
     const formattedPrice = props.price ? parseFloat(props.price.toString()) : '';
 
@@ -13,6 +11,7 @@ const CardWithRating = (props) => {
 
     return (
         <div class="border-2 border-vnv-light-grey rounded-xl p-2 m-0">
+            Pencarian dari 1-Max Length DB
             <div class="max-w-sm rounded overflow-hidden">
                 <img class="w-full" src={props.image} alt="Product" />
                 <div class="px-6 py-4">
@@ -22,7 +21,7 @@ const CardWithRating = (props) => {
                     </p>
                     <div>
                         <span>Terjual</span>
-                        <span>Rating</span>
+                        <span className="fa fa-star checked">Rating</span>
                     </div>
                 </div>
             </div>

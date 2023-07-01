@@ -16,7 +16,7 @@ export default function Carousel() {
   const handleNext = () => {
     sliderRef.current.slickNext();
   };
-
+  
   const [carouselData,setCarouselData] = useState([]);
 
   useEffect(()=>{
