@@ -40,6 +40,8 @@ export default function Carousel() {
   //   },
   // ];
 
+
+  
   const [carouselData,setCarouselData] = useState([]);
 
   useEffect(()=>{

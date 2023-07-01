@@ -47,7 +47,7 @@
 
   .carousel-dots {
     position: absolute;
-    bottom: 10px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
     list-style: none;
@@ -71,6 +71,3 @@
     cursor: pointer;
   }
   
-  .carousel-dots .slick-active button {
-    background-color: red;
-  }
