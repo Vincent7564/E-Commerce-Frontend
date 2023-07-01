@@ -5,7 +5,7 @@ const PageError = () => {
     <>
       <div class="w-full h-full pb-30 flex flex-col items-center justify-center">
         <div class="flex flex-col items-center justify-center pt-10">
-            <img src={imagenotfound} className=' w-[400px] h-[400px]' alt="" />
+            <img src={imagenotfound} className='rounded-lg w-[400px] h-[400px]' alt="" />
           <p class="text-3xl md:text-4xl lg:text-5xl text-gray-800 mt-12">
             Page Not Found
           </p>

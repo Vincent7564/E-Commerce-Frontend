@@ -35,7 +35,6 @@ const AddProduct = () => {
         }
         const response = await axios.post('/add-product', formData);
         
-        // const response = await axios.post('/add-product', values);
         console.log("Values:")
         console.log("Values is:"+ response.status);
         if(response.status === 200){
@@ -61,18 +60,18 @@ const AddProduct = () => {
         <img className=" w-60 h-50" src={require("../../Image/logo.png")} alt="" />
       </div>
       <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
-        <div className=" flex justify-center font-sans">
+        <div className=" flex justify-center font-sans mb-3">
           <h1 className=" text-[30px] font-medium font-sans">
             Add New Product
           </h1>
         </div>
-        <div className=" bg-cyan-300 pl-5 w-[25%] m-auto ">
+        <div className="rounded-lg bg-white pl-5 w-[50%] m-auto">
           <div class="grid grid-cols-2 gap-2 h-[50%] pt-4 m-auto font-sans">
             <div class="col-span-2">Product Name</div>
             <div class="col-span-2">
               <input
                 type="text"
-                className="w-[95%] h-8"
+                className="w-[95%] h-8 rounded-md border-2 border-vnv-light-grey"
                 name="ProductName"
                 id="ProductName"
                 onChange={formik.handleChange}
@@ -84,7 +83,7 @@ const AddProduct = () => {
             <div class="col-span-2">
               <input
                 type="text"
-                className="w-[95%] h-8"
+                className="w-[95%] h-8 rounded-md border-2 border-vnv-light-grey"
                 name="Price"
                 id="Price"
                 onChange={formik.handleChange}
@@ -98,7 +97,7 @@ const AddProduct = () => {
               <textarea
                 name="Description"
                 id="Description"
-                className="w-[95%]"
+                className="w-[95%] rounded-md border-2 border-vnv-light-grey"
                 cols="30"
                 rows="5"
                 onChange={formik.handleChange}
@@ -110,7 +109,7 @@ const AddProduct = () => {
             <div class="col-span-2">
               <input
                 type="text"
-                className="w-[95%] h-8"
+                className="w-[95%] h-8 rounded-md border-2 border-vnv-light-grey"
                 name="Qty"
                 id="Qty"
                 onChange={formik.handleChange}
@@ -122,7 +121,7 @@ const AddProduct = () => {
             <div class="col-span-2">
               <input
                 type="text"
-                className="w-[95%] h-8"
+                className="w-[95%] h-8 rounded-md border-2 border-vnv-light-grey"
                 name="Discount"
                 id="Discount"
                 onChange={formik.handleChange}
@@ -134,19 +133,18 @@ const AddProduct = () => {
               <input
                 type="file"
                 accept=".png, .jpg, .jpeg"
-                className="w-[95%] h-8"
+                className="w-[95%] h-8 rounded-md border-2 border-vnv-light-grey"
                 name="ProductImage"
                 id="ProductImage"
-                // onChange={formik.handleChange}
                 onChange={(e) =>
                   formik.setFieldValue('ProductImage', e.target.files[0]) 
                 }
               />
             </div>
 
-            <div class="col-span-2 text-right pt-5 pb-2 pr-4">
+            <div class="col-span-2 text-right pt-5 pb-2 pr-4 mb-3">
               <button
-                className=" p-3 bg-red-600"
+                className="rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary py-2 px-5"
                 type="submit"
                 onChange={formik.handleChange}
                 onSubmit={formik.handleSubmit}

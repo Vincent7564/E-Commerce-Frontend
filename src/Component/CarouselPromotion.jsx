@@ -17,29 +17,6 @@ export default function Carousel() {
     sliderRef.current.slickNext();
   };
 
-  // const carouselvalue = [
-  //   {
-  //     image: require("../Image/Test.jpg"),
-  //     link: "http://www.vincentlimz.com",
-  //   },
-  //   {
-  //     image: require("../Image/Test.jpg"),
-  //     link: "http://www.discord.com",
-  //   },
-  //   {
-  //     image: require("../Image/Test.jpg"),
-  //     link: "http://www.facebook.com",
-  //   },
-  //   {
-  //     image: require("../Image/Test.jpg"),
-  //     link: "http://www.facebook.com",
-  //   },
-  //   {
-  //     image: require("../Image/Test.jpg"),
-  //     link: "http://www.facebook.com",
-  //   },
-  // ];
-
   const [carouselData,setCarouselData] = useState([]);
 
   useEffect(()=>{

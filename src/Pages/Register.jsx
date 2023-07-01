@@ -76,18 +76,18 @@ const Register = () => {
         <img className=" w-60 h-50" src={require("../Image/logo.png")} alt="" />
       </div>
       <form onSubmit={formik.handleSubmit}>
-        <div className=" flex justify-center font-sans">
+        <div className=" flex justify-center font-sans mb-3">
           <h1 className=" text-[30px] font-medium font-sans">
             Create Your Account
           </h1>
         </div>
-        <div className=" bg-cyan-300 pl-5 w-[25%] m-auto ">
+        <div className=" bg-white pl-5 w-[40%] m-auto ">
           <div class="grid grid-cols-2 gap-2 h-[50%] pt-4 m-auto font-sans">
             <div class="col-span-2">Username <span className=" text-red-600">*</span></div>
             <div class="col-span-2">
               <input
                 type="text"
-                className="w-[95%] h-8"
+                className="w-[95%] h-8 rounded-md border-2 border-vnv-light-grey"
                 name="Username"
                 id="Username"
                 onChange={formik.handleChange}
@@ -99,7 +99,7 @@ const Register = () => {
             <div class="col-span-1">
               <input
                 type="text"
-                className="w-[90%] h-8"
+                className="w-[90%] h-8 rounded-md border-2 border-vnv-light-grey"
                 name="FirstName"
                 id="FirstName"
                 onChange={formik.handleChange}
@@ -109,7 +109,7 @@ const Register = () => {
             <div class="col-span-1">
               <input
                 type="text"
-                className="w-[90%] h-8"
+                className="w-[90%] h-8 rounded-md border-2 border-vnv-light-grey"
                 name="LastName"
                 id="LastName"
                 onChange={formik.handleChange}
@@ -120,7 +120,7 @@ const Register = () => {
             <div class="col-span-2">
               <input
                 type="text"
-                className="w-[95%] h-8"
+                className="w-[95%] h-8 rounded-md border-2 border-vnv-light-grey"
                 name="Email"
                 id="Email"
                 onChange={formik.handleChange}
@@ -133,7 +133,7 @@ const Register = () => {
             <div class="col-span-1">
               <input
                 type="password"
-                className="w-[90%] h-8"
+                className="w-[90%] h-8 rounded-md border-2 border-vnv-light-grey"
                 name="Password"
                 onChange={formik.handleChange}
                 value={formik.values.Password}
@@ -143,7 +143,7 @@ const Register = () => {
             <div class="col-span-1">
               <input
                 type="password"
-                className="w-[90%] h-8"
+                className="w-[90%] h-8 rounded-md border-2 border-vnv-light-grey"
                 name="cpassword"
                 onChange={formik.handleChange}
               />
@@ -155,7 +155,7 @@ const Register = () => {
               <textarea
                 name="Address"
                 id="Address"
-                className="w-[95%]"
+                className="w-[95%] rounded-md border-2 border-vnv-light-grey"
                 cols="30"
                 rows="5"
                 onChange={formik.handleChange}
@@ -176,7 +176,7 @@ const Register = () => {
             {formik.errors.Phone && <div className="col-span-2 text-red-600">*{formik.errors.Phone}</div>}
             <div class="col-span-2 text-right pt-5 pb-2 pr-4">
               <button
-                className=" p-3 bg-red-600"
+                className="rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary py-2 px-5"
                 type="submit"
                 onChange={formik.handleChange}
                 onSubmit={formik.handleSubmit}

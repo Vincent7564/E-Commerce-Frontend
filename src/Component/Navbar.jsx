@@ -1,43 +1,27 @@
 const Navbar = () => {
   return (
     <div>
-      <div className="flex flex-wrap pb-10">
-        <section className="relative mx-auto">
+      <div className="flex flex-wrap mb-10">
+        <section className="w-full">
           {/* <!-- navbar --> */}
-          <nav className="flex justify-between bg-gray-900 text-white w-screen">
-            <div className="px-5 xl:px-12 py-6 flex w-full items-center">
-              <a className="text-3xl font-bold font-heading" href="/">
-                <img src={require('../Image/logo.png')} className='h-10 w-20' alt="" />
+          <nav className="flex justify-between bg-vnv-green-accent text-white">
+            <div className="px-5 py-2 flex w-full items-center">
+              <a className="" href="/">
+                <img src={require('../Image/logo.png')} className='h-[48px] [w-72px] overflow-hidden' alt="" />
               </a>
               {/* <!-- Nav Links --> */}
-              <ul className="hidden md:flex  mx-auto font-semibold font-heading ">
-                <input type="text" className=" w-[35rem] h-[2rem] text-black" placeholder="Apa Yang Sedang Kamu Cari?" />
-                &nbsp;&nbsp;<button className=" bg-white text-black w-[5rem]">Cari!</button>
-                &nbsp;&nbsp;<button className=" bg-white text-black w-[5rem]"><a href="/register">Daftar</a></button>
-                &nbsp;&nbsp;<button className=" bg-slate-800 text-white w-[5rem]"><a href="/add-product">Add Product</a></button>
+              <ul className="hidden md:flex mx-auto">
+                <input type="text" className="rounded w-[35rem] h-[2rem] px-1 text-vnv-black" placeholder="Apa Yang Sedang Kamu Cari?" />
+                &nbsp;&nbsp;<button className="rounded bg-vnv-green-dark text-vnv-light px-2 hover:bg-vnv-green-dark-hover">Cari!</button>
+                &nbsp;&nbsp;<button className="rounded bg-vnv-green-dark text-vnv-light px-2 hover:bg-vnv-green-dark-hover"><a href="/register">Daftar</a></button>
+                &nbsp;&nbsp;<button className="rounded bg-slate-800 text-vnv-light px-2 hover:bg-slate-500"><a href="/add-product">Add Product</a></button>
               </ul>
               {/* <!-- Header Icons --> */}
-              <div className="hidden xl:flex items-center space-x-5 items-center">
-                {/* <a className="hover:text-gray-200" href="#">
+              <div className="hidden xl:flex items-center space-x-5">
+                <a className="flex items-center" href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    />
-                  </svg>
-                </a> */}
-                <a className="flex items-center hover:text-gray-200" href="#">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
+                    className="h-6 w-6 stroke-vnv-green-dark hover:stroke-vnv-light"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -55,10 +39,10 @@ const Navbar = () => {
                   </span>
                 </a>
                 {/* <!-- Sign In / Register      --> */}
-                <a className="flex items-center hover:text-gray-200" href="#">
+                <a className="flex items-center" href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 hover:text-gray-200"
+                    className="h-6 w-6 stroke-vnv-green-dark hover:stroke-vnv-light"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -77,7 +61,7 @@ const Navbar = () => {
             <a className="xl:hidden flex mr-6 items-center" href="#">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 hover:text-gray-200"
+                className="h-6 w-6 hover:text-vnv-light-grey"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -97,7 +81,7 @@ const Navbar = () => {
             <a className="navbar-burger self-center mr-12 xl:hidden" href="#">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 hover:text-gray-200"
+                className="h-6 w-6 hover:text-vnv-light-grey"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
