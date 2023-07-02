@@ -39,6 +39,7 @@ const Home = () => {
                         price = {data.price}
                         image = {data.productImage}
                         id = {data._id}
+                        disc={data.disc && data.disc.$numberDecimal}
                         />
                     ))}
                 </div>
