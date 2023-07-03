@@ -48,7 +48,7 @@ const CarouselProduct = () => {
               <ProductCardDisc productName = {data.productName}
               price = {data.price}
               image = {data.productImage}
-              disc = {data.disc.$numberDecimal}/>
+              disc = {data.discount.$numberDecimal}/>
             ))}
         </Carousel>
 

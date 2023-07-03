@@ -4,8 +4,9 @@ import * as yup from "yup";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useNavigate  } from "react-router";
 const AddProduct = () => {
+  const navigate = useNavigate();
   const FormSchema = yup.object().shape({
     Price : yup
     .number()
@@ -13,8 +14,11 @@ const AddProduct = () => {
     Qty : yup
     .number()
     .min(1, "Minimum qty is 1"),
+    Discount:yup
+    .number()
+    .min(0,"Minimum Discount is 0%")
+    .max(100,"Maximum Discount is 100%")
   });
-
   const formik = useFormik({
     initialValues: {
       ProductName: "",
@@ -40,13 +44,15 @@ const AddProduct = () => {
         if(response.status === 200){
           toast.success('Product added.',{
             position: toast.POSITION.TOP_CENTER
-          })
+          });
+          navigate('/');
         }
       } catch (error) {
         console.error('Error: ', error);
         toast.error('Unable to add product, Please Check and Try Again',{
           position: toast.POSITION.TOP_CENTER
         })
+        
       } finally {
         setSubmitting(false);
       }
@@ -55,7 +61,7 @@ const AddProduct = () => {
 
   return (
     <>
-      <ToastContainer />
+      
       <div className=" flex justify-center">
         <img className=" w-60 h-50" src={require("../../Image/logo.png")} alt="" />
       </div>
@@ -128,6 +134,7 @@ const AddProduct = () => {
                 value={formik.values.Discount}
               />
             </div>
+            {formik.errors.Discount && <div className="col-span-2 text-red-600">*{formik.errors.Discount}</div>}
             <div class="col-span-2">Image</div>
             <div class="col-span-2">
               <input
@@ -152,7 +159,7 @@ const AddProduct = () => {
                 Add
               </button>
             </div>
-
+            <redirect />
           </div>
         </div>
       </form>

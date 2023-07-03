@@ -3,7 +3,8 @@ import ProductCard from '../Component/ProductCard'
 import CarouselProduct from '../Component/CarouselProduct';
 import axios from 'axios';
 import React,{ useEffect, useState } from 'react';
-
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 const Home = () => {
     const [productCardData, setProductCardData] = useState([]);
     
@@ -24,6 +25,7 @@ const Home = () => {
 
     return (
         <div className="">
+          <ToastContainer/>
               <CarouselPromotion />
             <h1 className='text-2xl font-medium my-4 mt-[5rem]'><b>Promotions</b></h1>
             
@@ -39,7 +41,7 @@ const Home = () => {
                         price = {data.price}
                         image = {data.productImage}
                         id = {data._id}
-                        disc={data.disc && data.disc.$numberDecimal}
+                        disc={data.discount && data.discount.$numberDecimal}
                         />
                     ))}
                 </div>
