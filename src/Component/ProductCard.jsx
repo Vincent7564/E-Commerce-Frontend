@@ -1,7 +1,7 @@
 import testImg from "../Image/Test.jpg";
 import { NavLink } from "react-router-dom";
-
-const ProductCard = (props) => {
+import React from "react";
+const ProductCard = React.memo((props) => {
   const formattedPrice = props.price ? parseFloat(props.price.toString()) : "";
 
   const formatPrice = (price) => {
@@ -11,7 +11,7 @@ const ProductCard = (props) => {
     });
     return formatter.format(price);
   };
-
+  console.log("ProductCard rendered"); 
   return (
     <NavLink to={"/product-detail/" + props.id}>
       <div class="max-w-sm border-2 border-slate-300 rounded-xl m-0">
@@ -43,6 +43,6 @@ const ProductCard = (props) => {
       </div>
     </NavLink>
   );
-};
+});
 
 export default ProductCard;
