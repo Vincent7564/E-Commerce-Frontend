@@ -17,7 +17,7 @@ const RouteList = () => {
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/product-detail" element={<ProductDetail />} /> {/* temporary */}
         <Route path="/product-detail/:id" element={<ProductDetail />} />
-        <Route path="/view" element={<View />} />
+        <Route path="/search/:search" element={<View />} />
         <Route path="*" element={<PageError />} />
       </Routes>
     </BrowserRouter>

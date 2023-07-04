@@ -1,4 +1,21 @@
+import { useEffect,useState } from 'react';
+import { useParams } from 'react-router';
+import axios from 'axios';
+import { useNavigate  } from "react-router-dom";
 const Navbar = () => {
+  const params = useParams();
+  const [search,setSearch]=useState('')
+  // const navigate = useNavigate()
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    window.location.href = `/search/${search}`;
+  };
+
+  const handleInputChange = (event) => {
+    setSearch(event.target.value);
+  };
+
   return (
     <div>
       <div className="flex flex-wrap mb-10">
@@ -11,8 +28,10 @@ const Navbar = () => {
               </a>
               {/* <!-- Nav Links --> */}
               <ul className="hidden md:flex mx-auto">
-                <input type="text" className="rounded w-[35rem] h-[2rem] px-1 text-vnv-black" placeholder="Apa Yang Sedang Kamu Cari?" />
+                <form onSubmit={handleSearch}>
+                <input type="text" className="rounded w-[35rem] h-[2rem] px-1 text-vnv-black" placeholder="Apa Yang Sedang Kamu Cari?" name="search" id="search" value={search} onChange={handleInputChange} />
                 &nbsp;&nbsp;<button className="rounded bg-vnv-green-dark text-vnv-light px-2 hover:bg-vnv-green-dark-hover">Cari!</button>
+                </form>
                 &nbsp;&nbsp;<button className="rounded bg-vnv-green-dark text-vnv-light px-2 hover:bg-vnv-green-dark-hover"><a href="/register">Daftar</a></button>
                 &nbsp;&nbsp;<button className="rounded bg-slate-800 text-vnv-light px-2 hover:bg-slate-500"><a href="/add-product">Add Product</a></button>
               </ul>

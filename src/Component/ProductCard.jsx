@@ -1,4 +1,3 @@
-import testImg from "../Image/Test.jpg";
 import { NavLink } from "react-router-dom";
 import React from "react";
 const ProductCard = React.memo((props) => {
