@@ -28,9 +28,9 @@ const Navbar = () => {
               </a>
               {/* <!-- Nav Links --> */}
               <ul className="hidden md:flex mx-auto">
-                <form onSubmit={handleSearch}>
-                <input type="text" className="rounded w-[35rem] h-[2rem] px-1 text-vnv-black" placeholder="Apa Yang Sedang Kamu Cari?" name="search" id="search" value={search} onChange={handleInputChange} />
-                &nbsp;&nbsp;<button className="rounded bg-vnv-green-dark text-vnv-light px-2 hover:bg-vnv-green-dark-hover">Cari!</button>
+                <form onSubmit={handleSearch} className='m-0 p-0'>
+                  <input type="text" className="rounded w-[35rem] h-[2rem] px-1 text-vnv-black" placeholder="Apa Yang Sedang Kamu Cari?" name="search" id="search" value={search} onChange={handleInputChange} />
+                  &nbsp;&nbsp;<button className="rounded bg-vnv-green-dark text-vnv-light px-2 hover:bg-vnv-green-dark-hover">Cari!</button>
                 </form>
                 &nbsp;&nbsp;<button className="rounded bg-vnv-green-dark text-vnv-light px-2 hover:bg-vnv-green-dark-hover"><a href="/register">Daftar</a></button>
                 &nbsp;&nbsp;<button className="rounded bg-slate-800 text-vnv-light px-2 hover:bg-slate-500"><a href="/add-product">Add Product</a></button>

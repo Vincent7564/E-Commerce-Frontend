@@ -3,6 +3,7 @@ import "../Component/ProductDetailCard.css";
 import { useParams, withRouter } from "react-router";
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import { NavLink } from "react-router-dom";
 
 const ProductDetail = (props) => {
     // routing id
@@ -12,7 +13,8 @@ const ProductDetail = (props) => {
         price: "",
         description: "",
         qty: "",
-        productImage: ""
+        productImage: "",
+        discount: ""
     });
 
     useEffect(() => {
@@ -73,15 +75,39 @@ const ProductDetail = (props) => {
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
                     </div>
-                    <h1 className='text-4xl font-medium py-1'><b>{formatPrice(products.price.$numberDecimal)}</b></h1>
-                    <p className='text-gray-400 text-xl py-2 text-justify pe-10'>{products.description}</p>
+                    {/* <h1 className='text-4xl font-medium py-1'><b>{formatPrice(products.price.$numberDecimal)}</b></h1> */}
+
+                    <div class="text-2xl font-medium py-1">
+                        {products.discount.$numberDecimal > 0 ? (
+                            <>
+                            <p className=" text-red-400">
+                                <div className="w-[50%] text-m font-bold bg-red-500 text-red-300 text-right">{products.discount.$numberDecimal}% OFF!</div>
+                                    {formatPrice(
+                                    products.price.$numberDecimal - (products.price.$numberDecimal * products.discount.$numberDecimal) / 100
+                                    )}
+                            </p>
+
+                            <strike class="text-xl">{formatPrice(products.price.$numberDecimal)}</strike>
+                            </>
+                        ) : (
+                            <>{formatPrice(products.price.$numberDecimal)}</>
+                        )}
+                    </div>
+
+                    <div className='text-xl'><b>stock: {products.qty.$numberDecimal} left</b></div>
+                    <div className='text-l text-vnv-dark-grey'>send from: Jakarta</div>
+                    <p className='text-vnv-dark-grey text-xl py-2 text-justify pe-10'>{products.description}</p>
+
                 </div>
-                <div class="grid grid-cols-2 gap-4 content-stretch py-2 px-10">
-                    <div className='text-xl ps-10'>send from: Jakarta</div>
-                    <div className='text-xl pe-10 text-end'><b>stock: {products.qty.$numberDecimal} left</b></div>
-                    <div className='text-xl pe-10 text-end'><b>stock: 120 left</b></div>
+                <div class="grid grid-cols-2 gap-4 py-2 px-10">
+                    <div>
+                        {/* <button className=" rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary py-2 px-5"><a href="/edit-product">Edit Product</a></button> */}
+                        <NavLink to={"/edit-product/" + params.id} className=" rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary py-2 px-5">
+                            Edit Product
+                        </NavLink>
+                    </div>
                 </div>
-                <div class="w-[70%] border-[0.1rem] border-slate-300 rounded-xl p-2 m-0 ms-5 me-10">
+                <div class="w-[70%] border-[0.1rem] border-vnv-light-grey rounded-xl p-2 m-0 ms-5 me-10">
                     <div className='p-5'>
                         <div className='text-xl'><b>Add to Cart</b></div>
                         <div className='pt-2'>
@@ -98,7 +124,7 @@ const ProductDetail = (props) => {
                             </div>
                         </div>
                         <div className='text-end pe-10'>
-                            <button className=" bg-black text-white w-[5rem] p-2">Add</button>
+                            <button className=" rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary py-2 px-5">Add</button>
                         </div>
                     </div>
                 </div>

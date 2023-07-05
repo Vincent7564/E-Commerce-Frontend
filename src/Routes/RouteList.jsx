@@ -6,6 +6,7 @@ import AddProduct from "../Pages//Admin/AddProduct";
 import PageError from "../Pages/PageError";
 import ProductDetail from '../Pages/ProductDetail';
 import View from "../Pages/View";
+import EditProduct from "../Pages/Admin/EditProduct";
 
 const RouteList = () => {
   return (
@@ -15,8 +16,8 @@ const RouteList = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/add-product" element={<AddProduct />} />
-        <Route path="/product-detail" element={<ProductDetail />} /> {/* temporary */}
         <Route path="/product-detail/:id" element={<ProductDetail />} />
+        <Route path="/edit-product/:id" element={<EditProduct />} />
         <Route path="/search/:search" element={<View />} />
         <Route path="*" element={<PageError />} />
       </Routes>

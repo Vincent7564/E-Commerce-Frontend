@@ -10,10 +10,10 @@ const ProductCard = React.memo((props) => {
     });
     return formatter.format(price);
   };
-  console.log("ProductCard rendered"); 
+  
   return (
     <NavLink to={"/product-detail/" + props.id}>
-      <div class="max-w-sm border-2 border-slate-300 rounded-xl m-0">
+      <div class="max-w-sm border-2 border-vnv-light-grey rounded-xl m-0">
         <div class="rounded overflow-hidden">
           <img
             class="object-cover w-[24rem] h-[300px]"
