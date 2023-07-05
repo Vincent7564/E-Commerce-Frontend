@@ -1,6 +1,6 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import ProductCardDisc from '../Component/ProductCardDisc'
+import ProductCard from '../Component/ProductCard'
 import { useEffect,useState } from 'react';
 import axios from 'axios';
 
@@ -8,7 +8,7 @@ const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 1152 },
-      items: 5
+      items: 4
     },
     desktop: {
       breakpoint: { max: 1152, min: 768 },
@@ -43,17 +43,21 @@ const CarouselProduct = () => {
     
     return (
         
-        <Carousel responsive={responsive}>
+        <Carousel 
+          responsive={responsive}
+          infinite={true}
+          autoPlay={true}
+          autoPlaySpeed={10000}
+          transitionDuration={1000}
+          >
             {productCardDataDisc.map((data)=>(
-              <ProductCardDisc productName = {data.productName}
+              <ProductCard productName = {data.productName}
               price = {data.price}
               image = {data.productImage}
+              id = {data._id}
               disc = {data.discount.$numberDecimal}/>
             ))}
         </Carousel>
-
-        
-        
     );
   };
   

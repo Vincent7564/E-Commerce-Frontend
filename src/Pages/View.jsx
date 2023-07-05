@@ -33,16 +33,19 @@ const View = () => {
     return (
         <>
             <div>
-                Pencarian dari {sumData}
-                {searchData.map((data)=>(
-                    <CardWithRating
-                    productName = {data.productName}
-                    price = {data.price.$numberDecimal}
-                    qty = {data.qty}
-                    image = {data.productImage}
-                    disc={data.discount && data.discount.$numberDecimal}
-                    />
-                ))}
+                <p className='py-2'>Menampilkan {sumData} barang </p>
+                <div className="grid grid-cols-4 gap-2">
+                  {searchData.map((data)=>(
+                      <CardWithRating
+                        productName = {data.productName}
+                        price = {data.price.$numberDecimal}
+                        qty = {data.qty.$numberDecimal}
+                        image = {data.productImage}
+                        id = {data._id}
+                        disc={data.discount && data.discount.$numberDecimal}
+                      />
+                  ))}
+              </div>
             </div>
         </>
         
