@@ -6,6 +6,7 @@ import AddProduct from "../Pages//Admin/AddProduct";
 import PageError from "../Pages/PageError";
 import ProductDetail from '../Pages/ProductDetail';
 import View from "../Pages/View";
+import Profile from "../Pages/Profile";
 
 const RouteList = () => {
   return (
@@ -19,6 +20,7 @@ const RouteList = () => {
         <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/search/:search" element={<View />} />
         <Route path="*" element={<PageError />} />
+        <Route path="/Profile" element={<Profile/>}/>
       </Routes>
     </BrowserRouter>
   );
