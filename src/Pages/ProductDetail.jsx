@@ -1,7 +1,8 @@
-import CarouselProductDetail from '../Component/CarouselProductDetail'
+import CarouselProductDetail from "../Component/CarouselProductDetail";
 import "../Component/ProductDetailCard.css";
 import { useParams, withRouter } from "react-router";
 import React, { useEffect, useState } from "react";
+
 import axios from 'axios';
 import { NavLink } from "react-router-dom";
 
@@ -38,30 +39,52 @@ const ProductDetail = (props) => {
     // qty
     const [count, setCount] = useState(0);
 
-    const incrementCount = () => {
-        setCount(count + 1);
-    };
 
-    const decrementCount = () => {
-        setCount(count - 1);
-    };
-
-    const handleChange = (e)=>{
-        setCount(Number(e.target.value));
-    };
-
-    // format style
-    const formatPrice = (price) => {
-        console.log(price)
-
-        const formatter = new Intl.NumberFormat('id-ID', {
-          style: 'currency',
-          currency: 'IDR',
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        console.log("Testing useEffect");
+        console.log(params.id);
+        const response = await axios.get("/api/product-detail-data", {
+          params: { id: params.id },
         });
-        return formatter.format(price);
-      };
+        console.log(response.data);
+        console.log(response.status);
+        setProducts(response.data);
+        console.log("product:");
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
 
-    return (
+  // qty
+  const [count, setCount] = useState(0);
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
+
+  const decrementCount = () => {
+    setCount(count - 1);
+  };
+
+  const handleChange = (e) => {
+    setCount(Number(e.target.value));
+  };
+
+  // format style
+  const formatPrice = (price) => {
+    console.log(price);
+
+    const formatter = new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    });
+    return formatter.format(price);
+  };
+
+  return (
     <div class="border-[0.2rem] border-slate-300 rounded-xl p-2 m-0">
         <div>
             <div className="grid grid-cols-2 gap-2">
@@ -127,14 +150,20 @@ const ProductDetail = (props) => {
                             <button className=" rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary py-2 px-5">Add</button>
                         </div>
                     </div>
+
                 </div>
+              </div>
+              <div className="text-end pe-10">
+                <button className=" bg-black text-white w-[5rem] p-2">
+                  Add
+                </button>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  );
+};
 
-    );
-  };
-  
-  export default ProductDetail;
-
-  
+export default ProductDetail;
