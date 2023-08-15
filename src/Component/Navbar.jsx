@@ -2,6 +2,7 @@ import { useEffect,useState } from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import { useNavigate  } from "react-router-dom";
+import LoginButton from './LoginButton';
 const Navbar = () => {
   const params = useParams();
   const [search,setSearch]=useState('')
@@ -58,7 +59,8 @@ const Navbar = () => {
                   </span>
                 </a>
                 {/* <!-- Sign In / Register      --> */}
-                <a className="flex items-center" href="#">
+                <LoginButton />
+                <a className="flex items-center" href="">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6 stroke-vnv-green-dark hover:stroke-vnv-light"
