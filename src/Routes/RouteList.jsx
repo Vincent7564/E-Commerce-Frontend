@@ -21,7 +21,9 @@ const RouteList = () => {
         <Route path="/edit-product/:id" element={<EditProduct />} />
         <Route path="/search/:search" element={<View />} />
         <Route path="*" element={<PageError />} />
-        <Route path="/Profile" element={<Profile/>}/>
+        <Route path="/profile" element={<Profile/>}/>
+        {/* <Route path="/edit-profile" element={<Profile/>}/>
+        <Route path="/logout" element={<Profile/>}/> */}
       </Routes>
     </BrowserRouter>
   );
