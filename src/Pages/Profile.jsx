@@ -24,18 +24,23 @@ const Profile = () => {
           </div>
           
           <div className="border-t border-gray-300 pt-4">
-            <h3 className="text-lg font-bold">name</h3>
-            <p className="text-gray-500">first name + last name</p>
+            <h3 className="text-lg font-bold">email</h3>
+            <p className="text-gray-500">example@gmail.cpm</p>
           </div>
 
           <div className="border-t border-gray-300 pt-4">
-            <h3 className="text-lg font-bold mb-2">Phone Number</h3>
-            <p>No HP</p>
+            <h3 className="text-lg font-bold">address</h3>
+            <p className="text-gray-500">jalan lorem no 1</p>
           </div>
 
-          <div className="text-end mt-auto mb-2">
+          <div className="border-t border-gray-300 pt-4">
+            <h3 className="text-lg font-bold">phone</h3>
+            <p className="text-gray-500">+62 000 0000 0000</p>
+          </div>
+
+          <div className="text-end mb-2 mt-4">
             &nbsp;&nbsp;<button className="rounded p-2 hover:bg-vnv-green-dark text-vnv-light bg-vnv-green-primary"><a href="/edit-profile">Edit</a></button>
-            &nbsp;&nbsp;<button className="rounded p-2 hover:bg-red-800 text-vnv-light bg-red-500"><a href="/logout">Sign Out</a></button>
+            &nbsp;&nbsp;<button className="rounded p-2 hover:bg-red-800 text-vnv-light bg-red-500"><a href="/">Sign Out</a></button>
           </div>
         </div>
 
