@@ -8,6 +8,7 @@ import ProductDetail from '../Pages/ProductDetail';
 import View from "../Pages/View";
 import EditProduct from "../Pages/Admin/EditProduct";
 import Profile from "../Pages/Profile";
+import EditProfile from "../Pages/EditProfile";
 
 const RouteList = () => {
   return (
@@ -22,8 +23,8 @@ const RouteList = () => {
         <Route path="/search/:search" element={<View />} />
         <Route path="*" element={<PageError />} />
         <Route path="/profile" element={<Profile/>}/>
-        {/* <Route path="/edit-profile" element={<Profile/>}/>
-        <Route path="/logout" element={<Profile/>}/> */}
+        <Route path="/edit-profile" element={<EditProfile/>}/>
+        {/* <Route path="/logout" element={<Profile/>}/> */}
       </Routes>
     </BrowserRouter>
   );

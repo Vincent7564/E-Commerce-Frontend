@@ -5,7 +5,35 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Register = () => {
+const EditProfile = () => {
+    // routing id
+    // const params = useParams();
+    // const [products, setProducts] = useState({ 
+    //     productName: "", 
+    //     price: "",
+    //     description: "",
+    //     qty: "",
+    //     productImage: "",
+    //     discount: ""
+    // });
+
+    // useEffect(() => {
+    // const fetchData = async () => {
+    //     try {
+    //     console.log("Testing useEffect")
+    //     console.log(params.id)
+    //     const response = await axios.get('/api/profile-detail-data', { params: { id: params.id } });
+    //     console.log(response.data);
+    //     console.log(response.status);
+    //     setProducts(response.data);
+    //     console.log("product:")
+    //     } catch (error) {
+    //     console.error(error);
+    //     }
+    // };
+    // fetchData();
+    // }, []);
+    
   const FormSchema = yup.object().shape({
     Password: yup
       .string()
@@ -49,18 +77,23 @@ const Register = () => {
     validateOnChange: true,
     onSubmit:async (values, { setSubmitting }) => {
       try {
-        console.log('Form values:', values);
-        const response = await axios.post('/register', values);
+        const formData = new FormData();
+        for (let value in values) {
+          formData.append(value, values[value]);
+        }
+        formData.append("id", params.id)
+        const response = await axios.patch('/edit-profile', formData);
+
         console.log("Values:")
         console.log("Values is:"+ response.status);
         if(response.status === 200){
-          toast.success('Registration Success!!!',{
+          toast.success('Update Profile Success!!!',{
             position: toast.POSITION.TOP_CENTER
           })
         }
       } catch (error) {
         console.error('Error: ', error);
-        toast.success('Registration Error :(, Please Check and Try Again',{
+        toast.success('Update Profile Error :(, Please Check and Try Again',{
           position: toast.POSITION.TOP_CENTER
         })
       } finally {
@@ -78,7 +111,7 @@ const Register = () => {
       <form onSubmit={formik.handleSubmit}>
         <div className=" flex justify-center font-sans mb-3">
           <h1 className=" text-[30px] font-medium font-sans">
-            Create Your Account
+            Edit Profile
           </h1>
         </div>
         <div className=" bg-white pl-5 w-[40%] m-auto ">
@@ -191,4 +224,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default EditProfile;
