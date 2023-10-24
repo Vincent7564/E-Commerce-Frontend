@@ -12,7 +12,7 @@ const ProductDetail = (props) => {
         productName: "", 
         price: "",
         description: "",
-        qty: "",
+        qty: "",    
         productImage: "",
         discount: ""
     });

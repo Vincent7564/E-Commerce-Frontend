@@ -14,6 +14,7 @@ const Navbar = () => {
   };
 
   const handleInputChange = (event) => {
+    // console.log(search)
     setSearch(event.target.value);
   };
 

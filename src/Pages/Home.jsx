@@ -27,7 +27,7 @@ const Home = () => {
         <div className="">
           <ToastContainer/>
               <CarouselPromotion />
-            <h1 className='text-2xl font-medium my-4 mt-[5rem]'><b>Promotions</b></h1>
+            <h1 className='text-2xl font-medium my-4 mt-[5rem]'><b>Promotionsss</b></h1>
             
             <div class="border-2 border-vnv-light-grey rounded-xl p-5">
               <CarouselProduct />

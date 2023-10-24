@@ -2,6 +2,7 @@
   "name": "e-commerce-frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@auth0/auth0-react": "^2.2.0",
     "@chakra-ui/react": "^2.7.0",
