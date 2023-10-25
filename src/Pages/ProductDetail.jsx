@@ -78,7 +78,7 @@ const ProductDetail = (props) => {
                     {/* <h1 className='text-4xl font-medium py-1'><b>{formatPrice(products.price.$numberDecimal)}</b></h1> */}
 
                     <div class="text-2xl font-medium py-1">
-                        {products.discount.$numberDecimal > 0 ? (
+                        {products.discount && products.discount.$numberDecimal > 0 ? (
                             <>
                             <p className=" text-red-400">
                                 <div className="w-[50%] text-m font-bold bg-red-500 text-red-300 text-right">{products.discount.$numberDecimal}% OFF!</div>
