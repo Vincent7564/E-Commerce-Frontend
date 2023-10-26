@@ -6,9 +6,10 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  console.log(email,password)
-  // Call the custom hook inside your component
-  const UseAuthLogin = async (email, password) => {
+  const [userData, setUserData] = useState(null);
+  const [error, setError] = useState(null);
+
+  const AuthLogin = async () => {
     try {
       const response = await axios.post('/api/login', {
         email: email,
@@ -16,14 +17,22 @@ const Login = () => {
       });
       console.log(response.data);
       console.log(response.status);
-      if(response.status == 200){
+      if (response.status === 200) {
+        setUserData(response.data);
         window.location.href = `/`;
       }
     } catch (error) {
+      setError(error.response.data.message);
       console.error(error);
-      
     }
   };
+
+  useEffect(() => {
+    // Call the authentication function when the component mounts
+    if (email && password) {
+      AuthLogin();
+    }
+  }, []);
   
   const handleEmailChange =(event)=>{
     setEmail(event.target.value)
@@ -34,7 +43,7 @@ const Login = () => {
   const handleSignIn = () => {
     // This function can be used for any other logic you want to perform on sign-in
     // console.log(email, password);
-    UseAuthLogin(email, password);
+    AuthLogin(email, password);
   };
 
   return (
