@@ -23,8 +23,6 @@ const ProductDetail = (props) => {
             console.log("Testing useEffect")
             console.log(params.id)
             const response = await axios.get('/api/product-detail-data', { params: { id: params.id } });
-            console.log(response.data);
-            console.log(response.status);
             setProducts(response.data);
             console.log("product:")
           } catch (error) {
@@ -39,11 +37,15 @@ const ProductDetail = (props) => {
     const [count, setCount] = useState(0);
 
     const incrementCount = () => {
-        setCount(count + 1);
+        if(count < products.qty.$numberDecimal){
+            setCount(count + 1);
+        }
     };
 
     const decrementCount = () => {
-        setCount(count - 1);
+        if(count > 0){
+            setCount(count - 1);
+        }
     };
 
     const handleChange = (e)=>{
