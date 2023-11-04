@@ -3,6 +3,10 @@ import { useParams } from 'react-router';
 import axios from 'axios';
 import { useNavigate  } from "react-router-dom";
 import LoginButton from './LoginButton';
+import ProfileTooltipx from './ProfileTooltip_x'
+import { Tooltip } from 'react-tooltip';
+import ProfileTooltip from './ProfileTooltip';
+
 const Navbar = () => {
   const params = useParams();
   const [search,setSearch]=useState('')
@@ -60,6 +64,19 @@ const Navbar = () => {
                 </a>
                 {/* <!-- Sign In / Register      --> */}
                 <LoginButton />
+                <button>
+                  <ProfileTooltipx text="Simple tooltip"
+                  leaveDelay={300}>
+                    Profile!
+                  </ProfileTooltipx>
+                </button>
+
+                <a id="clickable">Profile</a>
+                <Tooltip className="bg-vnv-light p-0" opacity={1} style={{ backgroundColor: "rgb(255, 255, 255)", color: "#255", zIndex: "100" }}  anchorSelect="#clickable" clickable>
+                    <ProfileTooltip></ProfileTooltip>
+                </Tooltip>
+
+                
                 <a className="flex items-center" href="">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -115,6 +132,7 @@ const Navbar = () => {
                 />
               </svg>
             </a>
+            
           </nav>
         </section>
       </div>

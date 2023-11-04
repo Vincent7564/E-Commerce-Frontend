@@ -1,5 +1,6 @@
 import CarouselPromotion from '../Component/CarouselPromotion'
 import ProductCard from '../Component/ProductCard'
+import ProfileTooltip from '../Component/ProfileTooltip_x'
 import CarouselProduct from '../Component/CarouselProduct';
 import axios from 'axios';
 import React,{ useEffect, useState } from 'react';
