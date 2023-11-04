@@ -44,6 +44,10 @@ const Profile = () => {
               <p className="text-gray-500">username</p>
               {/* <p className="text-gray-500">{user.username}</p> */}
             </div>
+
+            <div>
+              <button className="mt-2 rounded-full p-2 mx-5 px-5 text-vnv-green-primary bg-white border-vnv-green-primary border"><a href="/change-password">Change Password</a></button>
+            </div>
           </div>
           
           <div>
