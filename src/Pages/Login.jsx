@@ -1,13 +1,15 @@
 import { Fragment } from "react";
 import  axios  from "axios";
 import { useEffect, useState } from "react";
-
+import { useDispatch } from "react-redux";
 const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState(null);
+
+  const dispatch = useDispatch();
 
   const AuthLogin = async () => {
     try {
@@ -18,17 +20,24 @@ const Login = () => {
       console.log(response.data);
       console.log(response.status);
       if (response.status === 200) {
+        dispatch({
+          type:"SUCCESS",
+          payload:response.data
+        })
         setUserData(response.data);
         window.location.href = `/`;
       }
     } catch (error) {
+      dispatch({
+        type:"FAILED",
+        payload:error.response.data.message
+      })
       setError(error.response.data.message);
       console.error(error);
     }
   };
 
   useEffect(() => {
-    // Call the authentication function when the component mounts
     if (email && password) {
       AuthLogin();
     }
@@ -41,8 +50,6 @@ const Login = () => {
     setPassword(event.target.value)
   }
   const handleSignIn = () => {
-    // This function can be used for any other logic you want to perform on sign-in
-    // console.log(email, password);
     AuthLogin(email, password);
   };
 

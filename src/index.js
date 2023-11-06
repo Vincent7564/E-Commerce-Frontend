@@ -12,17 +12,12 @@ import Register from './Pages/Register';
 import Footer from './Component/Footer';
 import RouteList from './Routes/RouteList';
 import CarouselPromotion from './Component/CarouselPromotion'
-import { Auth0Provider } from '@auth0/auth0-react';
+import { createStoreHook } from 'react-redux';
 <link href="/dist/output.css" rel="stylesheet"></link>
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Auth0Provider domain="dev-lbgwy1aoejbcjx8n.us.auth0.com"
-    clientId="s5L9Gc6g5w2NJPXyHfCjeeC45QBTpjZQ"
-    authorizationParams={{
-      redirect_uri: window.location.origin
-    }}>
     <Navbar />
     <div className='my-5 mx-44 overflow-hidden'>
       <RouteList />
@@ -30,7 +25,6 @@ root.render(
     <div className='mt-[5rem] overflow-hidden'>
       <Footer />
     </div>
-    </Auth0Provider>
   </React.StrictMode>
 );
 

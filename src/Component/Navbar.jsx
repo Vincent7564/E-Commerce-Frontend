@@ -3,11 +3,12 @@ import { useParams } from 'react-router';
 import axios from 'axios';
 import { useNavigate  } from "react-router-dom";
 import LoginButton from './LoginButton';
+import { useSelector } from 'react-redux';
 const Navbar = () => {
   const params = useParams();
   const [search,setSearch]=useState('')
   // const navigate = useNavigate()
-
+  const user = useSelector(state => state.user);
   const handleSearch = (event) => {
     event.preventDefault();
     window.location.href = `/search/${search}`;
@@ -60,7 +61,14 @@ const Navbar = () => {
                   </span>
                 </a>
                 {/* <!-- Sign In / Register      --> */}
-                <LoginButton />
+                {user?(
+                  <div>
+                    Hello {user.username}
+                    </div>
+                ):(
+                  <LoginButton />
+                )}
+                
                 <a className="flex items-center" href="">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
