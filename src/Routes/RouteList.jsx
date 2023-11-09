@@ -8,12 +8,14 @@ import ProductDetail from '../Pages/ProductDetail';
 import View from "../Pages/View";
 import EditProduct from "../Pages/Admin/EditProduct";
 import Profile from "../Pages/Profile";
-
+import { Provider } from "react-redux";
+import store from '../Store'
 const RouteList = () => {
   const setToastMessage = (message) => {
     
   };
   return (
+    <Provider store={store}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -27,7 +29,7 @@ const RouteList = () => {
         <Route path="/Profile" element={<Profile/>}/>
       </Routes>
     </BrowserRouter>
-    
+    </Provider>
   );
 };
 

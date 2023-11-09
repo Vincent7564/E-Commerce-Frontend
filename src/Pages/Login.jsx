@@ -2,12 +2,12 @@ import { Fragment } from "react";
 import  axios  from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { loginSuccess,loginFailure } from "../Actions";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
-
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [userData, setUserData] = useState(null);
-  const [error, setError] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -17,22 +17,24 @@ const Login = () => {
         email: email,
         password: password
       });
+
       console.log(response.data);
       console.log(response.status);
+
       if (response.status === 200) {
         dispatch({
-          type:"SUCCESS",
-          payload:response.data
-        })
-        setUserData(response.data);
-        window.location.href = `/`;
+          type: "LOGIN_SUCCESS",
+          payload: response.data
+        });
+        setTimeout(function() {
+          navigate('/')}
+          ,1000)
       }
     } catch (error) {
       dispatch({
-        type:"FAILED",
-        payload:error.response.data.message
-      })
-      setError(error.response.data.message);
+        type: "LOGIN_FAILURE",
+        payload: error.response.data.message
+      });
       console.error(error);
     }
   };

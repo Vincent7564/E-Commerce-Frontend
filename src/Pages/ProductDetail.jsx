@@ -83,7 +83,7 @@ const ProductDetail = (props) => {
                         {products.discount && products.discount.$numberDecimal > 0 ? (
                             <>
                             <p className=" text-red-400">
-                                <div className="w-[50%] text-m font-bold bg-red-500 text-red-300 text-right">{products.discount.$numberDecimal}% OFF!</div>
+                                <div className="w-[50%] text-m font-bold bg-red-500 text-red-300 text-right">{products.discount.$numberDecimal}% OFF!!!</div>
                                     {formatPrice(
                                     products.price.$numberDecimal - (products.price.$numberDecimal * products.discount.$numberDecimal) / 100
                                     )}
