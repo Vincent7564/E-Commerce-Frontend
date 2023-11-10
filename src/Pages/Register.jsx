@@ -5,7 +5,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Register = () => {
+const Register = (props) => {
   const FormSchema = yup.object().shape({
     Password: yup
       .string()
@@ -54,15 +54,29 @@ const Register = () => {
         console.log("Values:")
         console.log("Values is:"+ response.status);
         if(response.status === 200){
+          props.setToastMessage('Registration Success!!!')
           toast.success('Registration Success!!!',{
-            position: toast.POSITION.TOP_CENTER
+            position: toast.POSITION.TOP_CENTER,
+            autoClose:3000
           })
+          setTimeout(function() {
+            window.location.href=`/`}
+            ,3000)
         }
+        
       } catch (error) {
-        console.error('Error: ', error);
-        toast.success('Registration Error :(, Please Check and Try Again',{
-          position: toast.POSITION.TOP_CENTER
-        })
+        if (error.response && error.response.status === 403) {
+          // Handle custom error message from the backend
+          toast.error(error.response.data.message, {
+              position: toast.POSITION.TOP_CENTER,
+              autoClose: 3000
+          });
+        }else {
+          console.error('Error: ', error);
+          toast.error('Registration Error :(, Please Check and Try Again', {
+              position: toast.POSITION.TOP_CENTER
+          });
+      }
       } finally {
         setSubmitting(false);
       }

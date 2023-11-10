@@ -11,13 +11,19 @@ import Profile from "../Pages/Profile";
 import EditProfile from "../Pages/EditProfile";
 import ChangePassword from "../Pages/ChangePassword";
 
+import { Provider } from "react-redux";
+import store from '../Store'
 const RouteList = () => {
+  const setToastMessage = (message) => {
+    
+  };
   return (
+    <Provider store={store}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register setToastMessage={setToastMessage}/>} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/edit-product/:id" element={<EditProduct />} />
@@ -29,6 +35,7 @@ const RouteList = () => {
         {/* <Route path="/logout" element={<Profile/>}/> */}
       </Routes>
     </BrowserRouter>
+    </Provider>
   );
 };
 

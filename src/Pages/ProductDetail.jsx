@@ -12,7 +12,7 @@ const ProductDetail = (props) => {
         productName: "", 
         price: "",
         description: "",
-        qty: "",
+        qty: "",    
         productImage: "",
         discount: ""
     });
@@ -23,8 +23,6 @@ const ProductDetail = (props) => {
             console.log("Testing useEffect")
             console.log(params.id)
             const response = await axios.get('/api/product-detail-data', { params: { id: params.id } });
-            console.log(response.data);
-            console.log(response.status);
             setProducts(response.data);
             console.log("product:")
           } catch (error) {
@@ -39,11 +37,15 @@ const ProductDetail = (props) => {
     const [count, setCount] = useState(0);
 
     const incrementCount = () => {
-        setCount(count + 1);
+        if(count < products.qty.$numberDecimal){
+            setCount(count + 1);
+        }
     };
 
     const decrementCount = () => {
-        setCount(count - 1);
+        if(count > 0){
+            setCount(count - 1);
+        }
     };
 
     const handleChange = (e)=>{
@@ -78,10 +80,10 @@ const ProductDetail = (props) => {
                     {/* <h1 className='text-4xl font-medium py-1'><b>{formatPrice(products.price.$numberDecimal)}</b></h1> */}
 
                     <div class="text-2xl font-medium py-1">
-                        {products.discount.$numberDecimal > 0 ? (
+                        {products.discount && products.discount.$numberDecimal > 0 ? (
                             <>
                             <p className=" text-red-400">
-                                <div className="w-[50%] text-m font-bold bg-red-500 text-red-300 text-right">{products.discount.$numberDecimal}% OFF!</div>
+                                <div className="w-[50%] text-m font-bold bg-red-500 text-red-300 text-right">{products.discount.$numberDecimal}% OFF!!!</div>
                                     {formatPrice(
                                     products.price.$numberDecimal - (products.price.$numberDecimal * products.discount.$numberDecimal) / 100
                                     )}
