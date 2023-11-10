@@ -3,11 +3,11 @@ import ProductCard from '../Component/ProductCard'
 import CarouselProduct from '../Component/CarouselProduct';
 import axios from 'axios';
 import React,{ useEffect, useState } from 'react';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer,toast } from 'react-toastify';
 
 const Home = () => {
     const [productCardData, setProductCardData] = useState([]);
-    
+    const [toastMessage, setToastMessage] = useState('');
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -22,12 +22,20 @@ const Home = () => {
         };
         fetchData();
       }, []);
+    
+      useEffect(() => {
+        if (toastMessage) {
+          toast.success(toastMessage, {
+            position: toast.POSITION.TOP_CENTER,
+          });
+        }
+      }, [toastMessage]);
 
     return (
         <div className="">
           <ToastContainer/>
               <CarouselPromotion />
-            <h1 className='text-2xl font-medium my-4 mt-[5rem]'><b>Promotions</b></h1>
+            <h1 className='text-2xl font-medium my-4 mt-[5rem]'><b>Promotionsss</b></h1>
             
             <div class="border-2 border-vnv-light-grey rounded-xl p-5">
               <CarouselProduct />

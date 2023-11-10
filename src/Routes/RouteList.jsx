@@ -8,14 +8,19 @@ import ProductDetail from '../Pages/ProductDetail';
 import View from "../Pages/View";
 import EditProduct from "../Pages/Admin/EditProduct";
 import Profile from "../Pages/Profile";
-
+import { Provider } from "react-redux";
+import store from '../Store'
 const RouteList = () => {
+  const setToastMessage = (message) => {
+    
+  };
   return (
+    <Provider store={store}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register setToastMessage={setToastMessage}/>} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/edit-product/:id" element={<EditProduct />} />
@@ -24,6 +29,7 @@ const RouteList = () => {
         <Route path="/Profile" element={<Profile/>}/>
       </Routes>
     </BrowserRouter>
+    </Provider>
   );
 };
 

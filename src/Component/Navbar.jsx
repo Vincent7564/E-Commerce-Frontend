@@ -1,19 +1,21 @@
-import { useEffect,useState } from 'react';
-import { useParams } from 'react-router';
-import axios from 'axios';
-import { useNavigate  } from "react-router-dom";
-import LoginButton from './LoginButton';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import LoginButton from "./LoginButton";
+import { useSelector } from "react-redux";
 const Navbar = () => {
-  const params = useParams();
-  const [search,setSearch]=useState('')
-  // const navigate = useNavigate()
-
+  const [search, setSearch] = useState("");
+  const user = useSelector((state) => state.user.user);
+  console.log("Bawah Ini User");
+  console.log(user);
   const handleSearch = (event) => {
     event.preventDefault();
     window.location.href = `/search/${search}`;
   };
 
   const handleInputChange = (event) => {
+    // console.log(search)
     setSearch(event.target.value);
   };
 
@@ -25,16 +27,37 @@ const Navbar = () => {
           <nav className="flex justify-between bg-vnv-green-accent text-white">
             <div className="px-5 py-2 flex w-full items-center">
               <a className="" href="/">
-                <img src={require('../Image/logo.png')} className='h-[48px] [w-72px] overflow-hidden' alt="" />
+                <img
+                  src={require("../Image/logo.png")}
+                  className="h-[48px] [w-72px] overflow-hidden"
+                  alt=""
+                />
               </a>
               {/* <!-- Nav Links --> */}
               <ul className="hidden md:flex mx-auto">
-                <form onSubmit={handleSearch} className='m-0 p-0'>
-                  <input type="text" className="rounded w-[35rem] h-[2rem] px-1 text-vnv-black" placeholder="Apa Yang Sedang Kamu Cari?" name="search" id="search" value={search} onChange={handleInputChange} />
-                  &nbsp;&nbsp;<button className="rounded bg-vnv-green-dark text-vnv-light px-2 hover:bg-vnv-green-dark-hover">Cari!</button>
+                <form onSubmit={handleSearch} className="m-0 p-0">
+                  <input
+                    type="text"
+                    className="rounded w-[35rem] h-[2rem] px-1 text-vnv-black"
+                    placeholder="Apa Yang Sedang Kamu Cari?"
+                    name="search"
+                    id="search"
+                    value={search}
+                    onChange={handleInputChange}
+                  />
+                  &nbsp;&nbsp;
+                  <button className="rounded bg-vnv-green-dark text-vnv-light px-2 hover:bg-vnv-green-dark-hover">
+                    Cari!
+                  </button>
                 </form>
-                &nbsp;&nbsp;<button className="rounded bg-vnv-green-dark text-vnv-light px-2 hover:bg-vnv-green-dark-hover"><a href="/register">Daftar</a></button>
-                &nbsp;&nbsp;<button className="rounded bg-slate-800 text-vnv-light px-2 hover:bg-slate-500"><a href="/add-product">Add Product</a></button>
+                &nbsp;&nbsp;
+                <button className="rounded bg-vnv-green-dark text-vnv-light px-2 hover:bg-vnv-green-dark-hover">
+                  <a href="/register">Daftar</a>
+                </button>
+                &nbsp;&nbsp;
+                <button className="rounded bg-slate-800 text-vnv-light px-2 hover:bg-slate-500">
+                  <a href="/add-product">Add Product</a>
+                </button>
               </ul>
               {/* <!-- Header Icons --> */}
               <div className="hidden xl:flex items-center space-x-5">
@@ -59,7 +82,18 @@ const Navbar = () => {
                   </span>
                 </a>
                 {/* <!-- Sign In / Register      --> */}
-                <LoginButton />
+                {user !== null ? (
+                  <div>
+                    {user.username ? (
+                      <div>Hello {user.username}</div>
+                    ) : (
+                      <div>No username found in user object</div>
+                    )}
+                  </div>
+                ) : (
+                  <LoginButton />
+                )}
+
                 <a className="flex items-center" href="">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
