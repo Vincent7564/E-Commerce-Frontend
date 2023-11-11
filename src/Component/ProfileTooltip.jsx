@@ -1,12 +1,14 @@
 import "./tooltip.css";
-
+import { useSelector } from "react-redux";
 const ProfileTooltip = () => {
+  const user = useSelector((state) => state.user.user);
   return (
+    
     <>
       <div className="p-5 text-vnv-green-dark bg-vnv-light border-vnv-light-grey border-2"
       style={{ borderRadius: "5px"}}>
         {/* {text} */}
-        <div className="text-vnv-black"><b>FirstName LastName</b></div>
+        <div className="text-vnv-black"><b>{localStorage.firstName} {localStorage.lastName}</b></div>
         <div className="text-vnv-dark-grey">View Profile</div>
 
         <div>

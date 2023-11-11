@@ -26,6 +26,10 @@ const Login = () => {
           type: "LOGIN_SUCCESS",
           payload: response.data
         });
+        localStorage.firstName = response.data.firstName
+        localStorage.lastName = response.data.lastName
+        localStorage.email = response.data.email
+        // localStorage.user = response.data
         setTimeout(function() {
           navigate('/')}
           ,1000)
@@ -53,6 +57,7 @@ const Login = () => {
   }
   const handleSignIn = () => {
     AuthLogin(email, password);
+    
   };
 
   return (
