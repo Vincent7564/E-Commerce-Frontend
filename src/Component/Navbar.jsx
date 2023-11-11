@@ -1,8 +1,3 @@
-import { useEffect,useState } from 'react';
-import { useParams } from 'react-router';
-import axios from 'axios';
-import { useNavigate  } from "react-router-dom";
-import LoginButton from './LoginButton';
 import ProfileTooltipx from './ProfileTooltip_x'
 import { Tooltip } from 'react-tooltip';
 import ProfileTooltip from './ProfileTooltip';
