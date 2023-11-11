@@ -81,7 +81,7 @@ const EditProfile = () => {
         for (let value in values) {
           formData.append(value, values[value]);
         }
-        formData.append("id", params.id)
+        // formData.append("id", params.id)
         const response = await axios.patch('/edit-profile', formData);
 
         console.log("Values:")

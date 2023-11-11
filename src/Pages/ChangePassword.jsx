@@ -1,57 +1,59 @@
 import { useFormik, Field } from "formik";
+import { useParams } from "react-router";
+import axios from "axios";
 import * as yup from "yup";
 
 const ChangePassword = () => {
-    const FormSchema = yup.object().shape({
-        Password: yup
-          .string()
-          .required("Password Must Be Filled")
-          .min(8, "Password must be 8 characters long")
-          .matches(/[0-9]/, "Password requires a number")
-          .matches(/[a-z]/, "Password requires a lowercase letter")
-          .matches(/[A-Z]/, "Password requires an uppercase letter")
-          .matches(/[^\w]/, "Password requires a symbol"),
-        cpassword: yup
-          .string()
-          .required("Confirm Password Must Be Filled")
-          .oneOf([yup.ref("Password"), null], 'Must match "Password" field value'),
-      });
+    // const FormSchema = yup.object().shape({
+    //     Password: yup
+    //       .string()
+    //       .required("Password Must Be Filled")
+    //       .min(8, "Password must be 8 characters long")
+    //       .matches(/[0-9]/, "Password requires a number")
+    //       .matches(/[a-z]/, "Password requires a lowercase letter")
+    //       .matches(/[A-Z]/, "Password requires an uppercase letter")
+    //       .matches(/[^\w]/, "Password requires a symbol"),
+    //     cpassword: yup
+    //       .string()
+    //       .required("Confirm Password Must Be Filled")
+    //       .oneOf([yup.ref("Password"), null], 'Must match "Password" field value'),
+    //   });
 
-    const formik = useFormik({
-        initialValues: {
-          Password: "",
-        },
-        validationSchema: FormSchema,
-        validateOnChange: true,
-        onSubmit:async (values, { setSubmitting }) => {
-          try {
-            const formData = new FormData();
-            for (let value in values) {
-              formData.append(value, values[value]);
-            }
-            formData.append("id", params.id)
-            const response = await axios.patch('/change-password', formData);
+    // const formik = useFormik({
+    //     initialValues: {
+    //       Password: "",
+    //     },
+    //     validationSchema: FormSchema,
+    //     validateOnChange: true,
+    //     onSubmit:async (values, { setSubmitting }) => {
+    //       try {
+    //         const formData = new FormData();
+    //         for (let value in values) {
+    //           formData.append(value, values[value]);
+    //         }
+    //         formData.append("id", params.id)
+    //         const response = await axios.patch('/change-password', formData);
     
-            console.log("Values:")
-            console.log("Values is:"+ response.status);
-            if(response.status === 200){
-              toast.success('Update Password Success!!!',{
-                position: toast.POSITION.TOP_CENTER
-              })
-            }
-          } catch (error) {
-            console.error('Error: ', error);
-            toast.success('Update Password Error :(, Please Check and Try Again',{
-              position: toast.POSITION.TOP_CENTER
-            })
-          } finally {
-            setSubmitting(false);
-          }
-        },
-      });
+    //         console.log("Values:")
+    //         console.log("Values is:"+ response.status);
+    //         if(response.status === 200){
+    //           toast.success('Update Password Success!!!',{
+    //             position: toast.POSITION.TOP_CENTER
+    //           })
+    //         }
+    //       } catch (error) {
+    //         console.error('Error: ', error);
+    //         toast.success('Update Password Error :(, Please Check and Try Again',{
+    //           position: toast.POSITION.TOP_CENTER
+    //         })
+    //       } finally {
+    //         setSubmitting(false);
+    //       }
+    //     },
+    //   });
   return (
     <>
-    <form onSubmit={formik.handleSubmit}>
+    {/* <form onSubmit={formik.handleSubmit}>
         <div className=" flex justify-center font-sans mb-3">
             <h1 className=" text-[30px] font-medium font-sans">
                 Change Password
@@ -95,7 +97,7 @@ const ChangePassword = () => {
               </button>
             </div>
         </div>
-    </form>
+    </form> */}
     </>
   );
 };
