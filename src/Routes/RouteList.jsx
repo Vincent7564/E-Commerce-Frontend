@@ -8,6 +8,9 @@ import ProductDetail from '../Pages/ProductDetail';
 import View from "../Pages/View";
 import EditProduct from "../Pages/Admin/EditProduct";
 import Profile from "../Pages/Profile";
+import EditProfile from "../Pages/EditProfile";
+import ChangePassword from "../Pages/ChangePassword";
+
 import { Provider } from "react-redux";
 import store from '../Store'
 const RouteList = () => {
@@ -26,7 +29,10 @@ const RouteList = () => {
         <Route path="/edit-product/:id" element={<EditProduct />} />
         <Route path="/search/:search" element={<View />} />
         <Route path="*" element={<PageError />} />
-        <Route path="/Profile" element={<Profile/>}/>
+        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/edit-profile" element={<EditProfile/>}/>
+        <Route path="/change-password" element={<ChangePassword/>}/>
+        {/* <Route path="/logout" element={<Profile/>}/> */}
       </Routes>
     </BrowserRouter>
     </Provider>

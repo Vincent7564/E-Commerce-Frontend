@@ -5,7 +5,35 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Register = (props) => {
+const EditProfile = () => {
+    // routing id
+    // const params = useParams();
+    // const [products, setProducts] = useState({ 
+    //     productName: "", 
+    //     price: "",
+    //     description: "",
+    //     qty: "",
+    //     productImage: "",
+    //     discount: ""
+    // });
+
+    // useEffect(() => {
+    // const fetchData = async () => {
+    //     try {
+    //     console.log("Testing useEffect")
+    //     console.log(params.id)
+    //     const response = await axios.get('/api/profile-detail-data', { params: { id: params.id } });
+    //     console.log(response.data);
+    //     console.log(response.status);
+    //     setProducts(response.data);
+    //     console.log("product:")
+    //     } catch (error) {
+    //     console.error(error);
+    //     }
+    // };
+    // fetchData();
+    // }, []);
+    
   const FormSchema = yup.object().shape({
     Password: yup
       .string()
@@ -49,34 +77,25 @@ const Register = (props) => {
     validateOnChange: true,
     onSubmit:async (values, { setSubmitting }) => {
       try {
-        console.log('Form values:', values);
-        const response = await axios.post('/register', values);
+        const formData = new FormData();
+        for (let value in values) {
+          formData.append(value, values[value]);
+        }
+        formData.append("id", params.id)
+        const response = await axios.patch('/edit-profile', formData);
+
         console.log("Values:")
         console.log("Values is:"+ response.status);
         if(response.status === 200){
-          props.setToastMessage('Registration Success!!!')
-          toast.success('Registration Success!!!',{
-            position: toast.POSITION.TOP_CENTER,
-            autoClose:3000
+          toast.success('Update Profile Success!!!',{
+            position: toast.POSITION.TOP_CENTER
           })
-          setTimeout(function() {
-            window.location.href=`/`}
-            ,3000)
         }
-        
       } catch (error) {
-        if (error.response && error.response.status === 403) {
-          // Handle custom error message from the backend
-          toast.error(error.response.data.message, {
-              position: toast.POSITION.TOP_CENTER,
-              autoClose: 3000
-          });
-        }else {
-          console.error('Error: ', error);
-          toast.error('Registration Error :(, Please Check and Try Again', {
-              position: toast.POSITION.TOP_CENTER
-          });
-      }
+        console.error('Error: ', error);
+        toast.success('Update Profile Error :(, Please Check and Try Again',{
+          position: toast.POSITION.TOP_CENTER
+        })
       } finally {
         setSubmitting(false);
       }
@@ -92,7 +111,7 @@ const Register = (props) => {
       <form onSubmit={formik.handleSubmit}>
         <div className=" flex justify-center font-sans mb-3">
           <h1 className=" text-[30px] font-medium font-sans">
-            Create Your Account
+            Edit Profile
           </h1>
         </div>
         <div className=" bg-white pl-5 w-[40%] m-auto ">
@@ -205,4 +224,4 @@ const Register = (props) => {
   );
 };
 
-export default Register;
+export default EditProfile;
