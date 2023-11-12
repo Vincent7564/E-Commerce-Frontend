@@ -86,19 +86,20 @@ const Navbar = () => {
                   </span>
                 </a>
                 {/* <!-- Sign In / Register      --> */}
-                <LoginButton />
-                <button>
+                {/* <LoginButton /> */}
+
+                {/* <button>
                   <ProfileTooltipx text="Simple tooltip"
                   leaveDelay={300}>
                     Profile!
                   </ProfileTooltipx>
-                </button>
+                </button> */}
 
-                <a id="clickable">Profile</a>
+                <a id="clickable">Profile
                 <Tooltip className="bg-vnv-light p-0" opacity={1} style={{ backgroundColor: "rgb(255, 255, 255)", color: "#255", zIndex: "100" }}  anchorSelect="#clickable" clickable>
                     <ProfileTooltip></ProfileTooltip>
                 </Tooltip>
-
+                </a>
                 
                 {user !== null ? (
                   <div>
