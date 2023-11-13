@@ -1,5 +1,3 @@
-// AuthorizationComponent.js
-
 import React, { useEffect, useState } from 'react';
 
 const AuthorizationComponent = ({ children }) => {
@@ -16,7 +14,6 @@ const AuthorizationComponent = ({ children }) => {
           return;
         }
 
-        // Make an API call to check the validity of the token
         const response = await fetch('/check-authorization', {
           method: 'GET',
           headers: {
@@ -40,14 +37,12 @@ const AuthorizationComponent = ({ children }) => {
   }, []);
 
   if (loading) {
-    // You might want to show a loading spinner or some indication while checking authorization
     return <p>Loading...</p>;
   }
 
   if (isAuthorized) {
     return <>{children}</>;
   } else {
-    // Redirect to login or show an unauthorized message
     return <p>You are not authorized to view this page.</p>;
   }
 };

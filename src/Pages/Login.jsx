@@ -27,7 +27,7 @@ const Login = () => {
           type: "LOGIN_SUCCESS",
           payload: response.data
         });
-        localStorage.setItem('user', JSON.stringify(response.data));
+        localStorage.setItem('token',response.data.token)
         setTimeout(function() {
           navigate('/')}
           ,1000)
