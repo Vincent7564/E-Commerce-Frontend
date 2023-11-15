@@ -8,6 +8,7 @@ const AuthorizationComponent = ({ children }) => {
     const checkAuthorization = async () => {
       try {
         const token = localStorage.getItem('token');
+        const role = localStorage.getItem('role');
         if (!token) {
           setIsAuthorized(false);
           setLoading(false);
@@ -18,6 +19,7 @@ const AuthorizationComponent = ({ children }) => {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,
+            Role : role
           },
         });
         if (response.ok) {

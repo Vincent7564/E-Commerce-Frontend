@@ -28,6 +28,7 @@ const Login = () => {
           payload: response.data
         });
         localStorage.setItem('token',response.data.token)
+        localStorage.setItem('role',response.data.role)
         setTimeout(function() {
           navigate('/')}
           ,1000)

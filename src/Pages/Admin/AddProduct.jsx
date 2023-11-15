@@ -7,8 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router";
 import AuthorizationComponent from "../../Component/AuthorizationComponent";
 const AddProduct = () => {
-  const token = localStorage.getItem("token");
-
   const navigate = useNavigate();
   const FormSchema = yup.object().shape({
     Price: yup.number().min(1000, "Minimum Price is Rp. 1.000"),

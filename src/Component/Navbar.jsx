@@ -94,16 +94,20 @@ const Navbar = () => {
                   </ProfileTooltipx>
                 </button> */}
 
-                <a id="clickable">Profile
+                {/* <a id="clickable">Profile
                 <Tooltip className="bg-vnv-light p-0" opacity={1} style={{ backgroundColor: "rgb(255, 255, 255)", color: "#255", zIndex: "100" }}  anchorSelect="#clickable" clickable>
                     <ProfileTooltip></ProfileTooltip>
                 </Tooltip>
-                </a>
+                </a> */}
                 
                 {user !== null ? (
                   <div>
                     {user.username ? (
-                      <div>Hello {user.username}</div>
+                      <a id="clickable">{user.username}
+                      <Tooltip className="bg-vnv-light p-0" opacity={1} style={{ backgroundColor: "rgb(255, 255, 255)", color: "#255", zIndex: "100" }}  anchorSelect="#clickable" clickable>
+                          <ProfileTooltip></ProfileTooltip>
+                      </Tooltip>
+                      </a>
                     ) : (
                       <div>No username found in user object</div>
                     )}

@@ -8,7 +8,7 @@ const ProfileTooltip = () => {
       <div className="p-5 text-vnv-green-dark bg-vnv-light border-vnv-light-grey border-2"
       style={{ borderRadius: "5px"}}>
         {/* {text} */}
-        <div className="text-vnv-black"><b>{localStorage.firstName} {localStorage.lastName}</b></div>
+        <div className="text-vnv-black"><b>{user.username}</b></div>
         <div className="text-vnv-dark-grey">View Profile</div>
 
         <div>
