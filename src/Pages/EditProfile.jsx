@@ -1,52 +1,36 @@
 import { Fragment } from "react";
 import { useFormik, Field } from "formik";
+import { useDispatch } from "react-redux";
+
 import * as yup from "yup";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import React, { useEffect, useState } from "react";
 
 const EditProfile = () => {
-    // routing id
-    // const params = useParams();
-    // const [products, setProducts] = useState({ 
-    //     productName: "", 
-    //     price: "",
-    //     description: "",
-    //     qty: "",
-    //     productImage: "",
-    //     discount: ""
-    // });
+  const [user, setUser] = useState({ 
+    Username: "",
+    FirstName: "",
+    LastName: "",
+    Email: "",
+    Address: "",
+    Phone: "",
+  });
 
-    // useEffect(() => {
-    // const fetchData = async () => {
-    //     try {
-    //     console.log("Testing useEffect")
-    //     console.log(params.id)
-    //     const response = await axios.get('/api/profile-detail-data', { params: { id: params.id } });
-    //     console.log(response.data);
-    //     console.log(response.status);
-    //     setProducts(response.data);
-    //     console.log("product:")
-    //     } catch (error) {
-    //     console.error(error);
-    //     }
-    // };
-    // fetchData();
-    // }, []);
-    
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('/api/profile-detail-data', { params: { email: localStorage.email } });
+        setUser(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+  
   const FormSchema = yup.object().shape({
-    Password: yup
-      .string()
-      .required("Password Must Be Filled")
-      .min(8, "Password must be 8 characters long")
-      .matches(/[0-9]/, "Password requires a number")
-      .matches(/[a-z]/, "Password requires a lowercase letter")
-      .matches(/[A-Z]/, "Password requires an uppercase letter")
-      .matches(/[^\w]/, "Password requires a symbol"),
-    cpassword: yup
-      .string()
-      .required("Confirm Password Must Be Filled")
-      .oneOf([yup.ref("Password"), null], 'Must match "Password" field value'),
     Username: yup
       .string()
       .required("Username Must Be Filled"),
@@ -65,26 +49,19 @@ const EditProfile = () => {
 
   const formik = useFormik({
     initialValues: {
-      Username: "",
-      FirstName: "",
-      LastName: "",
-      Email: "",
-      Password: "",
-      Address: "",
-      Phone: "",
+      Username: user.username,
+      FirstName: user.firstName,
+      LastName: user.lastName,
+      Email: user.email,
+      Address: user.address,
+      Phone: user.phone,
     },
     validationSchema: FormSchema,
     validateOnChange: true,
+    enableReinitialize: true,
     onSubmit:async (values, { setSubmitting }) => {
       try {
-        const formData = new FormData();
-        for (let value in values) {
-          formData.append(value, values[value]);
-        }
-        // formData.append("id", params.id)
-        const response = await axios.patch('/edit-profile', formData);
-
-        console.log("Values:")
+        const response = await axios.patch('/edit-profile', values);
         console.log("Values is:"+ response.status);
         if(response.status === 200){
           toast.success('Update Profile Success!!!',{
@@ -161,28 +138,6 @@ const EditProfile = () => {
               />
             </div>
             {formik.errors.Email && <div className="col-span-2 text-red-600">*{formik.errors.Email}</div>}
-            <div class=" col-span-1">Password <span className=" text-red-600">*</span></div>
-            <div class=" col-span-1">Confirm Password <span className=" text-red-600">*</span></div>
-            <div class="col-span-1">
-              <input
-                type="password"
-                className="w-[90%] h-8 rounded-md border-2 border-vnv-light-grey"
-                name="Password"
-                onChange={formik.handleChange}
-                value={formik.values.Password}
-              />
-            </div>
-
-            <div class="col-span-1">
-              <input
-                type="password"
-                className="w-[90%] h-8 rounded-md border-2 border-vnv-light-grey"
-                name="cpassword"
-                onChange={formik.handleChange}
-              />
-            </div>
-            {formik.errors.Password && <div className="col-span-2 text-red-600">*{formik.errors.Password}</div>}
-            {formik.errors.cpassword && <div className="col-span-2 text-red-600">*{formik.errors.cpassword}</div>}
             <div class="col-span-2">Address <span className=" text-red-600">*</span></div>
             <div className="col-span-2">
               <textarea

@@ -30,6 +30,7 @@ const EditProduct = (props) => {
         console.log(response.status);
         setProducts(response.data);
         console.log("product:")
+        
       } catch (error) {
         console.error(error);
       }

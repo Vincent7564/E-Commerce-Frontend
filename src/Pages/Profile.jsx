@@ -4,9 +4,6 @@ import axios from 'axios';
 
 const Profile = () => {
 
-  // routing id
-  // const params = useParams();
-
 	const [user, setUser] = useState({ 
     Username: "",
     FirstName: "",
