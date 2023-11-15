@@ -16,7 +16,7 @@ const ProductDetail = (props) => {
         productImage: "",
         discount: ""
     });
-
+    const role = parseInt(localStorage.getItem('role'),10);
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -103,10 +103,12 @@ const ProductDetail = (props) => {
                 </div>
                 <div class="grid grid-cols-2 gap-4 py-2 px-10">
                     <div>
-                        {/* <button className=" rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary py-2 px-5"><a href="/edit-product">Edit Product</a></button> */}
-                        <NavLink to={"/edit-product/" + params.id} className=" rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary py-2 px-5">
-                            Edit Product
-                        </NavLink>
+                        {role === 101 ? 
+                            <NavLink to={"/edit-product/" + params.id} className=" rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary py-2 px-5">
+                                Edit Product
+                            </NavLink>
+                            : <></>}
+                        
                     </div>
                 </div>
                 <div class="w-[70%] border-[0.1rem] border-vnv-light-grey rounded-xl p-2 m-0 ms-5 me-10">
