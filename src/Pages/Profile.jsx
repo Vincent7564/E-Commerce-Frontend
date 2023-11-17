@@ -1,32 +1,30 @@
-import React from "react";
 import imagenotfound from "../Image/404.jpg";
-const Profile = () => {
-  // routing id
-	// const [user, setUser] = useState({ 
-  //   Username: "",
-  //   FirstName: "",
-  //   LastName: "",
-  //   Email: "",
-  //   Password: "",
-  //   Address: "",
-  //   Phone: "",
-  // });
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       console.log(params.id)
-  //       const response = await axios.get('/api/product-detail-data', { params: { username: user.username } });
-  //       console.log(response.data);
-  //       console.log(response.status);
-  //       setUser(response.data);
-  //       console.log("product:")
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
+const Profile = () => {
+
+	const [user, setUser] = useState({ 
+    Username: "",
+    FirstName: "",
+    LastName: "",
+    Email: "",
+    Password: "",
+    Address: "",
+    Phone: "",
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('/api/profile-detail-data', { params: { email: localStorage.email } });
+        setUser(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="container mx-auto p-4">
@@ -41,8 +39,7 @@ const Profile = () => {
             
             <div>
               <h2 className="text-lg font-bold">username</h2>
-              <p className="text-gray-500">username</p>
-              {/* <p className="text-gray-500">{user.username}</p> */}
+              <p className="text-gray-500">{user.username}</p>
             </div>
 
             <div>
@@ -52,26 +49,22 @@ const Profile = () => {
           
           <div>
             <h2 className="text-lg font-bold">name</h2>
-            <p className="text-gray-500">first name + last name</p>
-            {/* <p className="text-gray-500">{user.FirstName} + {user.LastName}</p> */}
+            <p className="text-gray-500">{user.firstName} {user.lastName}</p>
           </div>
           
           <div className="border-t border-gray-300 pt-4">
             <h3 className="text-lg font-bold">email</h3>
-            <p className="text-gray-500">example@gmail.cpm</p>
-            {/* <p className="text-gray-500">{user.Email}</p> */}
+            <p className="text-gray-500">{user.email}</p>
           </div>
 
           <div className="border-t border-gray-300 pt-4">
             <h3 className="text-lg font-bold">address</h3>
-            <p className="text-gray-500">jalan lorem no 1</p>
-            {/* <p className="text-gray-500">{user.Address}</p> */}
+            <p className="text-gray-500">{user.address}</p>
           </div>
 
           <div className="border-t border-gray-300 pt-4">
             <h3 className="text-lg font-bold">phone</h3>
-            <p className="text-gray-500">+62 000 0000 0000</p>
-            {/* <p className="text-gray-500">+{user.Phone}</p> */}
+            <p className="text-gray-500">{user.phone}</p>
           </div>
 
           <div className="text-end mb-2 mt-4">
