@@ -27,10 +27,8 @@ const Login = () => {
           type: "LOGIN_SUCCESS",
           payload: response.data
         });
-        localStorage.firstName = response.data.firstName
-        localStorage.lastName = response.data.lastName
-        localStorage.email = response.data.email
-        // localStorage.user = response.data
+        localStorage.setItem('token',response.data.token)
+        localStorage.setItem('role',response.data.role)
         setTimeout(function() {
           navigate('/')}
           ,1000)
