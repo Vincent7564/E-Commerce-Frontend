@@ -13,21 +13,24 @@ import Footer from "./Component/Footer";
 import RouteList from "./Routes/RouteList";
 import CarouselPromotion from "./Component/CarouselPromotion";
 import { createStoreHook, Provider } from "react-redux";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import store from "./Store";
 <link href="/dist/output.css" rel="stylesheet"></link>;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store = {store}>
-      <Navbar />
-      <div className="my-5 mx-44 overflow-hidden">
-        <RouteList />
-      </div>
-      <div className="mt-[5rem] overflow-hidden">
-        <Footer />
-      </div>
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <Navbar />
+        <div className="my-5 mx-44 overflow-hidden">
+          <RouteList />
+        </div>
+        <div className="mt-[5rem] overflow-hidden">
+          <Footer />
+        </div>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

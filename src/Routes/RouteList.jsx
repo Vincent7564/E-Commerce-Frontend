@@ -19,7 +19,7 @@ const RouteList = () => {
   };
   return (
     <Provider store={store}>
-    <BrowserRouter>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -34,7 +34,6 @@ const RouteList = () => {
         <Route path="/change-password" element={<ChangePassword/>}/>
         {/* <Route path="/logout" element={<Profile/>}/> */}
       </Routes>
-    </BrowserRouter>
     </Provider>
   );
 };

@@ -40,14 +40,16 @@ const ProductDetail = (props) => {
     console.log(params.id)
     try {
       await axios.delete(`/api/delete-product/${params.id}`);
-      toast.success("Product Deleted!", {
+      toast.success("Product Deleted!.", {
         position: toast.POSITION.TOP_CENTER,
       });
+      setTimeout(function() {
+        navigate('/')}
+        ,1000)
     } catch (error) {
         toast.error(`${error}`, {
             position: toast.POSITION.TOP_CENTER,
           });
-      console.error(error);
     }
   };
 
