@@ -9,16 +9,12 @@ import LoginButton from "./LoginButton";
 import { useSelector } from "react-redux";
 const Navbar = () => {
   const [search, setSearch] = useState("");
-  const user = useSelector((state) => state.user.user);
-  console.log("Bawah Ini User");
-  console.log(user);
   const handleSearch = (event) => {
     event.preventDefault();
     window.location.href = `/search/${search}`;
   };
 
   const handleInputChange = (event) => {
-    // console.log(search)
     setSearch(event.target.value);
   };
 
@@ -84,29 +80,35 @@ const Navbar = () => {
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
                   </span>
                 </a>
-                {/* <!-- Sign In / Register      --> */}
-                {/* <LoginButton /> */}
-
-                {/* <button>
-                  <ProfileTooltipx text="Simple tooltip"
-                  leaveDelay={300}>
-                    Profile!
-                  </ProfileTooltipx>
-                </button> */}
-
-                {/* <a id="clickable">Profile
-                <Tooltip className="bg-vnv-light p-0" opacity={1} style={{ backgroundColor: "rgb(255, 255, 255)", color: "#255", zIndex: "100" }}  anchorSelect="#clickable" clickable>
-                    <ProfileTooltip></ProfileTooltip>
-                </Tooltip>
-                </a> */}
                 
-                {user !== null ? (
+                {localStorage.username !== null ? (
                   <div>
-                    {user.username ? (
-                      <a id="clickable">{user.username}
-                      <Tooltip className="bg-vnv-light p-0" opacity={1} style={{ backgroundColor: "rgb(255, 255, 255)", color: "#255", zIndex: "100" }}  anchorSelect="#clickable" clickable>
-                          <ProfileTooltip></ProfileTooltip>
-                      </Tooltip>
+                    {localStorage.username ? (
+                      <a id="clickable">
+                        <div className='flex'>
+                          <span className='pe-2'>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6 stroke-vnv-green-dark hover:stroke-vnv-light"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                          </span>
+                          <span>
+                          {localStorage.username}
+                          </span>
+                          <Tooltip className="bg-vnv-light p-0" opacity={1} style={{ backgroundColor: "rgb(255, 255, 255)", color: "#255", zIndex: "100" }}  anchorSelect="#clickable" clickable>
+                              <ProfileTooltip></ProfileTooltip>
+                          </Tooltip>
+                        </div>
                       </a>
                     ) : (
                       <div>No username found in user object</div>
@@ -117,20 +119,7 @@ const Navbar = () => {
                 )}
 
                 <a className="flex items-center" href="">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 stroke-vnv-green-dark hover:stroke-vnv-light"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
+                  
                 </a>
               </div>
             </div>
