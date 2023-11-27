@@ -13,6 +13,7 @@ import ChangePassword from "../Pages/ChangePassword";
 
 import { Provider } from "react-redux";
 import store from '../Store'
+import AdminDashboard from "../Pages/Admin/AdminDashboard";
 const RouteList = () => {
   const setToastMessage = (message) => {
     
@@ -32,6 +33,7 @@ const RouteList = () => {
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/edit-profile" element={<EditProfile/>}/>
         <Route path="/change-password" element={<ChangePassword/>}/>
+        <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
         {/* <Route path="/logout" element={<Profile/>}/> */}
       </Routes>
     </Provider>
