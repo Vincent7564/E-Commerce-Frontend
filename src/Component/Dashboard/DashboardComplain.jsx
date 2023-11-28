@@ -29,9 +29,15 @@ const DashboardComplain = () => {
   return (
     <>
         <Carousel responsive={responsive}>
-            <div className="mx-2 text-center">tes</div>
-            <div className="mx-2 text-center">tes</div>
-            <div className="mx-2 text-center">tes</div>
+            <div>
+                <p className="text-vnv-green-dark"><b>Order no. ORD/240112/0012</b></p>
+                <p className="text-vnv-dark-grey">Complain Date: 12 Jan 2024</p>
+            </div>
+
+            <div>
+                <p className="text-vnv-green-dark"><b>Order no. ORD/240112/0012</b></p>
+                <p className="text-vnv-dark-grey">Complain Date: 12 Jan 2024</p>
+            </div>
         </Carousel>
     </>
   );

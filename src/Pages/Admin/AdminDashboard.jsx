@@ -18,14 +18,21 @@ const AdminDashboard = () => (
         <div className="flex">
             <div className="rounded-lg p-5 w-[40%] mx-auto">
                 <div>
-                    <h1 className="px-2">Complain (xx)</h1>
+                    <button className="mb-5 w-[100%] p-3 rounded bg-vnv-green-primary text-vnv-light hover:bg-vnv-green-dark">Open Order Detail</button>
+                </div>
+
+                <div>
+                    <div className="flex mb-1 me-1">
+                        <h1 className="w-[70%] px-2">Complain (2)</h1>
+                        <button className="w-[30%] px-1  rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary">See All</button>
+                    </div>
                     <div className="rounded-lg mb-5 p-5 bg-white w-[100%]">
                         <DashboardComplain />
                     </div>
                 </div>
 
                 <div>
-                    <h1 className="px-2">Low on stock (xx)</h1>
+                    <h1 className="px-2 mb-1">Low on stock (2)</h1>
                     <div className="rounded-lg mb-5 p-5 bg-white w-[100%]">
                         <DashboardLowOnStock />
                     </div>
@@ -34,21 +41,30 @@ const AdminDashboard = () => (
 
             <div className="rounded-lg p-5 w-[40%] mx-auto">
                 <div>
-                    <h1 className="px-2">New Order (xx)</h1>
+                    <div className="flex mb-1 me-1">
+                        <h1 className="w-[70%] px-2">New Order (2)</h1>
+                        <button className="w-[30%] px-1  rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary">See All</button>
+                    </div>
                     <div className="rounded-lg mb-5 p-5 bg-white w-[100%]">
                         <DashboardNewOrder />
                     </div>
                 </div>
 
                 <div>
-                    <h1 className="px-2">Order on Process (xx)</h1>
+                    <div className="flex mb-1 me-1">
+                        <h1 className="w-[70%] px-2">Order on Process (2)</h1>
+                        <button className="w-[30%] px-1  rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary">See All</button>
+                    </div>
                     <div className="rounded-lg mb-5 p-5 bg-white w-[100%]">
                         <DashboardOrderOnProgress />
                     </div>
                 </div>
 
                 <div>
-                    <h1 className="px-2">Order on Delivery (xx)</h1>
+                    <div className="flex mb-1 me-1">
+                        <h1 className="w-[70%] px-2">Order on Delivery (2)</h1>
+                        <button className="w-[30%] px-1 rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary">See All</button>
+                    </div>
                     <div className="rounded-lg mb-5 p-5 bg-white w-[100%]">
                         <DashboardOrderOnDelivery />
                     </div>

@@ -29,9 +29,20 @@ const DashboardNewOrder = () => {
   return (
     <>
         <Carousel responsive={responsive}>
-            <div className="mx-2 text-center">tes</div>
-            <div className="mx-2 text-center">tes</div>
-            <div className="mx-2 text-center">tes</div>
+            <div>
+                <p className="text-vnv-green-dark"><b>Tiffany Juliana</b></p>
+                <p className="text-vnv-green-dark"><b>Order no. ORD/240112/0012</b></p>
+                <p className="text-vnv-dark-grey">Order Date: 12 Jan 2024</p>
+                <p className="text-vnv-dark-grey">Rp. 120.000</p>
+            </div>
+
+            <div>
+                <p className="text-vnv-green-dark"><b>Tiffany Juliana</b></p>
+                <p className="text-vnv-green-dark"><b>Order no. ORD/240112/0012</b></p>
+                <p className="text-vnv-dark-grey">Order Date: 12 Jan 2024</p>
+                <p className="text-vnv-dark-grey">Rp. 120.000</p>
+            </div>
+
         </Carousel>
     </>
   );
