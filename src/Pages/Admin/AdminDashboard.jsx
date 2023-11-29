@@ -18,13 +18,15 @@ const AdminDashboard = () => (
         <div className="flex">
             <div className="rounded-lg p-5 w-[40%] mx-auto">
                 <div>
-                    <button className="mb-5 w-[100%] p-3 rounded bg-vnv-green-primary text-vnv-light hover:bg-vnv-green-dark">Open Order Detail</button>
+                    <button className="mb-5 w-[100%] p-3 rounded bg-vnv-green-primary text-vnv-light hover:bg-vnv-green-dark">
+                        <a href="/admin-order-list">See All Order</a>
+                    </button>
                 </div>
 
                 <div>
                     <div className="flex mb-1 me-1">
-                        <h1 className="w-[70%] px-2">Complain (2)</h1>
-                        <button className="w-[30%] px-1  rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary">See All</button>
+                        <h1 className="w-[50%] px-2">Complain (2)</h1>
+                        <button className="w-[50%] px-1  rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-primary">See All Complain</button>
                     </div>
                     <div className="rounded-lg mb-5 p-5 bg-white w-[100%]">
                         <DashboardComplain />
