@@ -16,22 +16,42 @@ export default function OrderList() {
     const MENU_CLOSED = "MENU_CLOSED"
     const MENU_COMPLAIN = "MENU_COMPLAIN"
 
-    function setMenau(menu){
-        MENU_ACTIVE = menu
-        console.log(MENU_ACTIVE)
-    }
+    const TITLE_NEW = "New"
+    const TITLE_ON_PROGRESS = "On Progress"
+    const TITLE_SENT = "Sent"
+    const TITLE_DELIVERED = "Delivered"
+    const TITLE_COMPLETE = "Complete"
+    const TITLE_CLOSED = "Closed"
+    const TITLE_COMPLAIN = "Complain"
+
 
     const [menu, setMenu] = useState(MENU_NEW)
-    const [title, setTitle] = useState("New Order")
+    const [title, setTitle] = useState(TITLE_NEW)
     
     React.useEffect(() => {
-        if (menu === MENU_NEW) {
-          MENU_TITLE = 'New Order';
-        } else {
-          MENU_TITLE = 'tes';
+        switch(menu){
+            case MENU_NEW:
+              MENU_TITLE = TITLE_NEW;
+              break;
+            case MENU_ON_PROGRESS:
+                MENU_TITLE = TITLE_ON_PROGRESS;
+                break;
+            case MENU_SENT:
+                MENU_TITLE = TITLE_SENT;
+                break;
+            case MENU_DELIVERED:
+                MENU_TITLE = TITLE_DELIVERED;
+                break;
+            case MENU_COMPLETE:
+                MENU_TITLE = TITLE_COMPLETE;
+                break;
+            case MENU_CLOSED:
+                MENU_TITLE = TITLE_CLOSED;
+                break;
+            case MENU_COMPLAIN:
+                MENU_TITLE = TITLE_COMPLAIN;
+                break;
         }
-        console.log(MENU_TITLE)
-
         setTitle(MENU_TITLE)
       }, [menu]);
     
