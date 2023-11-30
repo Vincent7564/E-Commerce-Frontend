@@ -4,7 +4,6 @@ import  axios  from "axios";
 import { useNavigate } from "react-router-dom";
 const ProfileTooltip = () => {
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user.user);
   const logout = async () =>{
     try{
       await axios.post('/logout');
@@ -22,14 +21,14 @@ const ProfileTooltip = () => {
       <div className="p-5 text-vnv-green-dark bg-vnv-light border-vnv-light-grey border-2"
       style={{ borderRadius: "5px"}}>
         {/* {text} */}
-        <div className="text-vnv-black"><b>{user.username}</b></div>
+        <div className="text-vnv-black"><b>{localStorage.username}</b></div>
         <div className="text-vnv-dark-grey">View Profile</div>
 
         <div>
             <button
             className="border-2 my-2 mx-5 p-3 w-40% rounded border-vnv-green-primary text-vnv-green-primary hover:text-vnv-green-dark hover:bg-vnv-green-dark py-2 px-5"
             >
-            setting
+              <a href="/edit-profile">setting</a>  
             </button>
 
             <button
@@ -40,7 +39,7 @@ const ProfileTooltip = () => {
             </button>
         </div>
 
-        <div>
+        <div className="">
             <button
             className="border-2 my-2 mx-5 p-3 rounded bg-vnv-green-primary text-vnv-green-dark hover:text-vnv-light hover:bg-vnv-green-dark py-2 px-5"
             >

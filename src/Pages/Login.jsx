@@ -29,6 +29,9 @@ const Login = () => {
         });
         localStorage.setItem('token',response.data.token)
         localStorage.setItem('role',response.data.role)
+        console.log("response.data")
+        console.log(response.data)
+        localStorage.setItem('username',response.data.username)
         setTimeout(function() {
           navigate('/')}
           ,1000)
