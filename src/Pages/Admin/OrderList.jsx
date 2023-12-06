@@ -2,7 +2,15 @@ import { Fragment } from "react";
 import { useNavigate  } from "react-router";
 import { useParams, withRouter } from "react-router";
 import React, { useEffect, useState } from "react";
+import PerfectScrollbar from "react-perfect-scrollbar";
 import "../Admin/OrderList.css";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 export default function OrderList() {
     let MENU_ACTIVE = ""
@@ -52,9 +60,31 @@ export default function OrderList() {
                 MENU_TITLE = TITLE_COMPLAIN;
                 break;
         }
+
         setTitle(MENU_TITLE)
-      }, [menu]);
-    
+        }, [menu]);
+        
+        function createData(
+            orderNo,
+            orderDate,
+            custName,
+            custPhone,
+        ) {
+            return { orderNo, orderDate, custName, custPhone };
+        }
+        
+        function test(){
+            console.log("tes")
+        }
+
+        const rows = [
+            createData('Frozen yoghurt', 159, 6.0, 24),
+            createData('Ice cream sandwich', 237, 9.0, 37),
+            createData('Eclair', 262, 16.0, 24),
+            createData('Cupcake', 305, 3.7, 67),
+            createData('Gingerbread', 356, 16.0, 49),
+        ];
+
     return (
         <>
             <div className=" flex justify-center font-sans mb-3">
@@ -73,10 +103,43 @@ export default function OrderList() {
             </div>
 
             <div className="bg-white">
-                <div className=" flex justify-center font-sans mb-3">
+                <div className=" flex justify-center font-sans my-3 py-3">
                     <h1 className=" text-[30px] font-medium font-sans">
                         {title}
                     </h1>
+                </div>
+                <div className="px-5 pb-5 mb-5">
+                    <TableContainer component={Paper}>
+                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                            <TableHead>
+                            <TableRow>
+                                <TableCell><b>Order No</b></TableCell>
+                                <TableCell align="right"><b>Order Date</b></TableCell>
+                                <TableCell align="right"><b>Customer Name</b></TableCell>
+                                <TableCell align="right"><b>Customer Phone</b></TableCell>
+                                <TableCell align="center"><b>Process</b></TableCell>
+                            </TableRow>
+                            </TableHead>
+                            <TableBody>
+                            {rows.map((row) => (
+                                <TableRow
+                                key={row.name}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                >
+                                <TableCell component="th" scope="row">
+                                    {row.orderNo}
+                                </TableCell>
+                                <TableCell align="right">{row.orderDate}</TableCell>
+                                <TableCell align="right">{row.custName}</TableCell>
+                                <TableCell align="right">{row.custPhone}</TableCell>
+                                <TableCell align="right">
+                                    <button className="rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-accent py-2 px-5 mx-2" onClick={() => test()}>Next</button>
+                                </TableCell>
+                                </TableRow>
+                            ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
                 </div>
             </div>
         </>
