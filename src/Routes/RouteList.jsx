@@ -15,6 +15,7 @@ import { Provider } from "react-redux";
 import store from '../Store'
 import AdminDashboard from "../Pages/Admin/AdminDashboard";
 import OrderList from "../Pages/Admin/OrderList";
+import ComplainList from "../Pages/Admin/ComplainList";
 const RouteList = () => {
   const setToastMessage = (message) => {
     
@@ -36,6 +37,7 @@ const RouteList = () => {
         <Route path="/change-password" element={<ChangePassword/>}/>
         <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
         <Route path="/admin-order-list" element={<OrderList/>}/>
+        <Route path="/admin-complain-list" element={<ComplainList/>}/>
         {/* <Route path="/logout" element={<Profile/>}/> */}
       </Routes>
     </Provider>
