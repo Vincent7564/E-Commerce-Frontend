@@ -17,19 +17,11 @@ export default function OrderList() {
 
     const MENU_NEW = "MENU_NEW"
     const MENU_ON_PROCESS = "MENU_ON_PROCESS"
-    const MENU_SENT = "MENU_SENT"
-    const MENU_DELIVERED = "MENU_DELIVERED"
-    const MENU_COMPLETE = "MENU_COMPLETE"
     const MENU_CLOSED = "MENU_CLOSED"
-    const MENU_COMPLAIN = "MENU_COMPLAIN"
 
     const TITLE_NEW = "New"
     const TITLE_ON_PROCESS = "On Process"
-    const TITLE_SENT = "Sent"
-    const TITLE_DELIVERED = "Delivered"
-    const TITLE_COMPLETE = "Complete"
     const TITLE_CLOSED = "Closed"
-    const TITLE_COMPLAIN = "Complain"
 
 
     const [menu, setMenu] = useState(MENU_NEW)
@@ -43,20 +35,8 @@ export default function OrderList() {
             case MENU_ON_PROCESS:
                 MENU_TITLE = TITLE_ON_PROCESS;
                 break;
-            case MENU_SENT:
-                MENU_TITLE = TITLE_SENT;
-                break;
-            case MENU_DELIVERED:
-                MENU_TITLE = TITLE_DELIVERED;
-                break;
-            case MENU_COMPLETE:
-                MENU_TITLE = TITLE_COMPLETE;
-                break;
             case MENU_CLOSED:
                 MENU_TITLE = TITLE_CLOSED;
-                break;
-            case MENU_COMPLAIN:
-                MENU_TITLE = TITLE_COMPLAIN;
                 break;
         }
 
@@ -64,37 +44,34 @@ export default function OrderList() {
         }, [menu]);
         
         function createData(
+            complainNo,
             orderNo,
+            complainDate,
             orderDate,
             custName,
             custPhone,
         ) {
-            return { orderNo, orderDate, custName, custPhone };
+            return { complainNo, orderNo, complainDate, orderDate, custName, custPhone };
         }
 
         const rows = [
-            createData('Frozen yoghurt', 159, 6.0, 24),
-            createData('Ice cream sandwich', 237, 9.0, 37),
-            createData('Eclair', 262, 16.0, 24),
-            createData('Cupcake', 305, 3.7, 67),
-            createData('Gingerbread', 356, 16.0, 49),
+            createData('Frozen yoghurt', 'Frozen yoghurt', 159, 123, 6.0, 24),
+            createData('Frozen yoghurt', 'Frozen yoghurt', 159, 123, 6.0, 24),
+            createData('Frozen yoghurt', 'Frozen yoghurt', 159, 123, 6.0, 24),
+            createData('Frozen yoghurt', 'Frozen yoghurt', 159, 123, 6.0, 24),
         ];
 
     return (
         <>
             <div className=" flex justify-center font-sans mb-3">
                 <h1 className=" text-[30px] font-medium font-sans">
-                    Order List
+                    Complain List
                 </h1>
             </div>
             <div className=" flex justify-center font-sans mb-3">
                 <button className="btnMenu rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-accent py-2 px-5 mx-2" onClick={() => setMenu(MENU_NEW)}>{TITLE_NEW}</button>
                 <button className="btnMenu rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-accent py-2 px-5 mx-2" onClick={() => setMenu(MENU_ON_PROCESS)}>{TITLE_ON_PROCESS}</button>
-                <button className="btnMenu rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-accent py-2 px-5 mx-2" onClick={() => setMenu(MENU_SENT)}>{TITLE_SENT}</button>
-                <button className="btnMenu rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-accent py-2 px-5 mx-2" onClick={() => setMenu(MENU_DELIVERED)}>{TITLE_DELIVERED}</button>
-                <button className="btnMenu rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-accent py-2 px-5 mx-2" onClick={() => setMenu(MENU_COMPLETE)}>{TITLE_COMPLETE}</button>
                 <button className="btnMenu rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-accent py-2 px-5 mx-2" onClick={() => setMenu(MENU_CLOSED)}>{TITLE_CLOSED}</button>
-                <button className="btnMenu rounded bg-vnv-green-dark text-vnv-light hover:bg-vnv-green-accent py-2 px-5 mx-2" onClick={() => setMenu(MENU_COMPLAIN)}>{TITLE_COMPLAIN}</button>
             </div>
 
             <div className="bg-white">
@@ -108,7 +85,9 @@ export default function OrderList() {
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">
                             <TableHead>
                             <TableRow>
+                                <TableCell><b>Complain No</b></TableCell>
                                 <TableCell><b>Order No</b></TableCell>
+                                <TableCell align="right"><b>Complain Date</b></TableCell>
                                 <TableCell align="right"><b>Order Date</b></TableCell>
                                 <TableCell align="right"><b>Customer Name</b></TableCell>
                                 <TableCell align="right"><b>Customer Phone</b></TableCell>
@@ -122,8 +101,12 @@ export default function OrderList() {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                 <TableCell component="th" scope="row">
+                                    {row.complainNo}
+                                </TableCell>
+                                <TableCell component="th" scope="row">
                                     {row.orderNo}
                                 </TableCell>
+                                <TableCell align="right">{row.complainDate}</TableCell>
                                 <TableCell align="right">{row.orderDate}</TableCell>
                                 <TableCell align="right">{row.custName}</TableCell>
                                 <TableCell align="right">{row.custPhone}</TableCell>
